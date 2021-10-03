@@ -1,1 +1,0 @@
-tellraw @s ["",{"text":"Are you absolutely sure that you want to end the current game? "},{"text":"[Yes, reset the game]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function hunters_and_runners:reset/resetconfirm"},"hoverEvent":{"action":"show_text","contents":{"text":"Click Here to reset the game"}}}]

@@ -46,3 +46,6 @@ execute if entity @s[team=hunters] run execute unless score @s hnr.spell.cool ma
 execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
 tellraw @s[team=!hunters] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
 tellraw @s ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown] or type /trigger hnr.spellreset","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
+
+##> Retire from game
+#tellraw @s ["","Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"execute as @s run function hunters_and_runners:reset/player_retire"}},"to retire from the game"]

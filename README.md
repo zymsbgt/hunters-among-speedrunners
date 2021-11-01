@@ -60,3 +60,6 @@ On Runners death:
 - Become Hunter, The Runner will be move to the Hunters team.
 
 (to be continued)
+
+# Credits:
+This datapack was forked from https://github.com/RedSparr0w/hunters_and_runners

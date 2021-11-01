@@ -21,7 +21,7 @@ View settings/select a team:
 ```
 /trigger hnr.information
 ```
-<br/>![hnr.information](https://i.imgur.com/AL1j4Bx.png)
+<br/>
 
 View game stats:
 ```

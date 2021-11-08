@@ -1,4 +1,4 @@
-# Information regarding this repository
+## Information regarding this repository
 
 The main Git repository is located at my self-hosted Gitea instance at https://git.online-hangout.com/zymsb/hunters-among-speedrunners <br/>
 There is a mirror repository on GitHub for backup purposes at https://github.com/zymsbgt/hunters-among-speedrunners <br/>

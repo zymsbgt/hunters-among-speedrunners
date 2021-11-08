@@ -1,5 +1,9 @@
 # Hunters Among Speedrunners
 
+The main Git repository is located at my self-hosted Gitea instance at https://git.online-hangout.com/zymsb/hunters-among-speedrunners <br/>
+There is a mirror repository on GitHub for backup purposes at https://github.com/zymsbgt/hunters-among-speedrunners <br/>
+The mirror repository will be a few hours behind the main repository.
+
 Minecraft minigame datapack based on speedrunning and deception. <br/>
 For setup instructions, visit https://docs.google.com/document/d/1kOOY_4Y6hiFj-rFSk3dRmzn4dvPnB_-x7hS3OopZyJQ/edit?usp=sharing <br/>
 Goes well with the Grave datapack by VanillaTweaks. Get it here: https://vanillatweaks.net/picker/datapacks/ <br/>

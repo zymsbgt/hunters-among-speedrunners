@@ -44,3 +44,7 @@ execute if entity @s[team=!hunters] run tellraw @s [{"text":"Mining Fatigue - ",
 execute if entity @s[team=!hunters] run tellraw @s [{"text":"Nausea - ","hoverEvent":{"action":"show_text","value":{"text":"Makes all players feel nauseous"}}},{"text":"[Locked]","color":"yellow","hoverEvent":{"action":"show_text","value":{"text":"You cannot cast this spell as you are not a hunter"}}}]
 execute if entity @s[team=!hunters] run tellraw @s [{"text":"Haste - ","hoverEvent":{"action":"show_text","value":{"text":"All hunters break blocks faster"}}},{"text":"[Locked]","color":"yellow","hoverEvent":{"action":"show_text","value":{"text":"You cannot cast this spell as you are not a hunter"}}}]
 execute if entity @s[team=!hunters] run tellraw @s [{"text":"Night Vision - ","hoverEvent":{"action":"show_text","value":{"text":"Gives all hunters night vision"}}},{"text":"[Locked]","color":"yellow","hoverEvent":{"action":"show_text","value":{"text":"You cannot cast this spell as you are not a hunter"}}}]
+
+##> Spell cooldown reset for hunters 
+tellraw @s [" "]
+tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]

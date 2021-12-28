@@ -26,7 +26,6 @@ execute if entity @s[team=hunters] run tellraw @s [{"text":"Nausea - ","hoverEve
 execute if entity @s[team=hunters] run tellraw @s [{"text":"Haste - ","hoverEvent":{"action":"show_text","value":{"text":"All hunters break blocks faster"}}},{"text":"[Cast Spell]","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.spell.cast set 12"},"hoverEvent":{"action":"show_text","value":{"text":"Cast this spell now!"}}}]
 execute if entity @s[team=hunters] run tellraw @s [{"text":"Night Vision - ","hoverEvent":{"action":"show_text","value":{"text":"Gives all hunters night vision"}}},{"text":"[Cast Spell]","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hnr.spell.cast set 13"},"hoverEvent":{"action":"show_text","value":{"text":"Cast this spell now!"}}}]
 
-
 #> Show Dummy Menu for Runners
 tellraw @s[team=!hunters] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
 execute if entity @s[team=!hunters] run tellraw @s [{"text":"Regeneration - ","hoverEvent":{"action":"show_text","value":{"text":"Regenerate Hunters health for 30s"}}},{"text":"[Locked]","color":"aqua","hoverEvent":{"action":"show_text","value":{"text":"You cannot cast this spell as you are not a hunter"}}}]

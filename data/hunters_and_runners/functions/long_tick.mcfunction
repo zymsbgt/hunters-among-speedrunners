@@ -8,7 +8,7 @@ function hunters_and_runners:runners/tick
 function hunters_and_runners:hunters/tick
 function hunters_and_runners:jester/tick
 
-#> If a player is in nether or end, disable announceAdvancements for the dimension (fix for a bug on Bukkit/Spigot servers)
+#> If the first player in a match has reached the nether or end respectively, disable announceAdvancements for the dimension (fix for a bug on Bukkit/Spigot servers)
 execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run gamerule announceAdvancements false
 execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run scoreboard players set nether_loaded hnr.settings 1
 execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run gamerule announceAdvancements false

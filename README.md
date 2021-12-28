@@ -61,5 +61,9 @@ On Runners death:
 
 (to be continued)
 
-# Credits:
+# Looking for a Minecraft server to play this minigame on?
+Our server hosting provider GeyserHost is willing to give anyone who wants to play this minigame a free Minecraft server for as long as the game lasts. 
+Join their Discord server here: https://discord.gg/gwtQqFjDYp
+
+## Credits:
 This datapack was forked from https://github.com/RedSparr0w/hunters_and_runners

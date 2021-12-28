@@ -5,10 +5,8 @@ scoreboard players set @s hnr.spell.list 0
 tellraw @s [" "]
 tellraw @s [" "]
 
-#> Show hunters how much time left till they can cast a spell
-execute if score @s hnr.spell.cool matches 1.. run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
-execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
-execute if score @s hnr.spell.cool matches ..-1 run tellraw @s ["",{"text":"Please stop the game! Error found in spell cooldown: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
+##> Spell cooldown reset for hunters 
+tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
 
 #> Show Spell Title
 tellraw @s [{"text":"===== Cast a Spell =====","color":"gold"}]
@@ -45,6 +43,10 @@ execute if entity @s[team=!hunters] run tellraw @s [{"text":"Nausea - ","hoverEv
 execute if entity @s[team=!hunters] run tellraw @s [{"text":"Haste - ","hoverEvent":{"action":"show_text","value":{"text":"All hunters break blocks faster"}}},{"text":"[Locked]","color":"yellow","hoverEvent":{"action":"show_text","value":{"text":"You cannot cast this spell as you are not a hunter"}}}]
 execute if entity @s[team=!hunters] run tellraw @s [{"text":"Night Vision - ","hoverEvent":{"action":"show_text","value":{"text":"Gives all hunters night vision"}}},{"text":"[Locked]","color":"yellow","hoverEvent":{"action":"show_text","value":{"text":"You cannot cast this spell as you are not a hunter"}}}]
 
-##> Spell cooldown reset for hunters 
-tellraw @s [" "]
-tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
+#> Show Spell Footer
+tellraw @s [{"text":"=====================","color":"gold"}]
+
+#> Show hunters how much time left till they can cast a spell
+execute if score @s hnr.spell.cool matches 1.. run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
+execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
+execute if score @s hnr.spell.cool matches ..-1 run tellraw @s ["",{"text":"Please stop the game! Error found in spell cooldown: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]

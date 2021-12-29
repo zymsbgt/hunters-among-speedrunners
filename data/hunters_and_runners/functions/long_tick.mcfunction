@@ -21,8 +21,8 @@ execute if entity @a[scores={hnr.dragonkilled=1}] run tellraw @a ["","Admins, ",
 execute if entity @a[scores={hnr.dragonkilled=1}] run scoreboard players set @a hnr.dragonkilled 0
 
 #> When healer is nearby, regenerate player health
-execute as @a[scores={hnr.ishealer=0}] at @a[scores={hnr.ishealer=0}] run effect give @a[scores={hnr.ishealer=1},distance=0..15] minecraft:regeneration 12 1 true
-execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=0},distance=0..15] minecraft:regeneration 12 1 true
-execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=1},distance=2..15] minecraft:regeneration 12 1 true 
+execute as @a[scores={hnr.ishealer=0}] at @a[scores={hnr.ishealer=0}] run effect give @a[scores={hnr.ishealer=1},distance=0..15] minecraft:regeneration 4 0 true
+execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=0},distance=0..15] minecraft:regeneration 4 0 true
+execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=1},distance=2..15] minecraft:regeneration 4 0 true 
 
 schedule function hunters_and_runners:long_tick 1s

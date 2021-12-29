@@ -42,7 +42,7 @@ execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"n
 tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@s","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@s","objective":"hnr.zpos"},"color":"aqua"}]
 
 ##> Retire from game
-tellraw @s ["","Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/execute as @s run function hunters_and_runners:reset/player_retire"}},"to retire from the game"]
+#tellraw @s ["","Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/execute as @s run function hunters_and_runners:reset/player_retire"}},"to retire from the game"]
 
 ##> Spell cooldown for hunters 
 execute if entity @s[team=hunters] run execute unless score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]

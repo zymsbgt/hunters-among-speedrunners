@@ -1,3 +1,4 @@
+scoreboard players add @s hnr.spell.count 1
 execute if score hunter_sabotage hnr.settings matches 0 run scoreboard players set @s[team=hunters] hnr.spell.cool 300
 execute if score hunter_sabotage hnr.settings matches 1 run scoreboard players set @s[team=hunters] hnr.spell.cool 600
 execute if score hunter_sabotage hnr.settings matches 2 run scoreboard players set @s[team=hunters] hnr.spell.cool 900

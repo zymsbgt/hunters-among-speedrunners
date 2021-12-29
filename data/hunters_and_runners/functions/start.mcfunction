@@ -62,10 +62,11 @@ execute if score respect_runner_limit hnr.settings matches 1 run gamemode specta
 #> Assign Healer, if enabled
 execute if score enable_healer hnr.settings matches 1 run scoreboard players set @r hnr.ishealer 1
 
-#> Clear all potion effects, XP and inventory
+#> Clear all potion effects, XP, inventory and ground items
 clear @a
 effect clear @a
 xp set @a 0 points
+kill @e[type=item]
 
 #> Refill hunger
 time set 0

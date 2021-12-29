@@ -23,6 +23,7 @@ scoreboard objectives modify hnr.runners.hp displayname {"text":"Health"}
 scoreboard objectives add hnr.playercount dummy
 ##> Hunter Spells
 scoreboard objectives add hnr.spell.cool dummy
+scoreboard objectives add hnr.spell.count dummy
 ##> Dummy scoreboard for temp variables
 scoreboard objectives add hnr.dummy dummy
 ##> Usage of Signal Flares

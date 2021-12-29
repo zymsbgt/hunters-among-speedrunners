@@ -9,6 +9,7 @@ scoreboard players reset Hunters hnr.teams.amount
 scoreboard players set @a hnr.tracking_id 0
 scoreboard players reset @a hnr.usedflare
 scoreboard players set @a hnr.ishealer 0
+scoreboard players reset @a hnr.spell.count
 
 #> Clear teams
 team leave @a

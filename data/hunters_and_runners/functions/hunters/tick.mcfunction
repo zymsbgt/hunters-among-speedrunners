@@ -19,6 +19,9 @@ execute as @a[scores={hnr.spell.cast=11}] run function hunters_and_runners:hunte
 execute as @a[scores={hnr.spell.cast=12}] run function hunters_and_runners:hunters/spells/haste
 execute as @a[scores={hnr.spell.cast=13}] run function hunters_and_runners:hunters/spells/night_vision
 
+#> If hunter right clicked a compass, cycle to next runner (doesn't work as compass cannot be used (right-clicked)
+#execute as @a[scores={hnr.usedcompass=1..}] run function hunters_and_runners:flare/used_compass
+
 #> Display text on hunter's actionbar
 ##> If show_hunter_coords is 1, show coordinates, if not applicable, show nothing
 execute if score show_hunter_coords hnr.settings matches 1 run execute as @a[team=hunters] run execute at @s run execute if entity @p[distance=10..,limit=1,team=hunters] run title @s actionbar ["",{"selector":"@p[distance=10..,limit=1,team=hunters]"},{"text":": "},{"score":{"name":"@p[distance=2..,limit=1,team=hunters]","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@p[distance=2..,limit=1,team=hunters]","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@p[distance=2..,limit=1,team=hunters]","objective":"hnr.zpos"},"color":"aqua"}]

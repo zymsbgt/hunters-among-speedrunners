@@ -1,3 +1,6 @@
+#> Reset the scoreboard so this isn't run multiple times
+scoreboard players set @s hnr.retirecnfm 0
+
 #> Reset variables to default values
 scoreboard players set @s hnr.ishealer 0
 

@@ -8,5 +8,5 @@ execute unless score @s hnr.spell.cool matches 0 run tellraw @s {"text":"Your sp
 execute if score @s hnr.spell.cool matches 0 run effect give @a[team=hunters] regeneration 30 0 true
 execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"Your spell has been casted","color":"aqua"}]
 execute if score @s hnr.spell.cool matches 0 run tellraw @a[team=hunters] ["",{"text":"Your huntermate has casted regeneration upon you","color":"aqua"}]
-execute if score @s hnr.spell.cool matches 0 run playsound ambient.cave master @a[team=runners] ~ ~ ~ 50 1
+execute if score @s hnr.spell.cool matches 0 run playsound ambient.cave master @a[team=!hunters] ~ ~ ~ 50 1
 execute if score @s hnr.spell.cool matches 0 run function hunters_and_runners:hunters/spells/set_cooldown

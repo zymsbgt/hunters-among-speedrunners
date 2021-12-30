@@ -28,7 +28,7 @@ execute if entity @s[team=jester] run tellraw @s {"text":"Trick other players in
 ##> if player is the healer
 execute if score @s hnr.ishealer matches 1 run tellraw @s {"text":"You are also a healer","italic":true}
 execute if score @s hnr.ishealer matches 0 run tellraw @s {"text":"You are not a healer","italic":true}
-tellraw @s {"text":"Healer is currently experimental, please report bugs if you notice anything wrong!","italic":true,"color":"gray","hoverEvent":{"action":"show_text","contents":{"text":"Please report bugs on the developer's Discord server: http://discord.zymsb.mywire.org/"}}}
+tellraw @s {"text":"Healer is currently experimental, please report bugs if you notice anything wrong!","italic":true,"color":"gray","hoverEvent":{"action":"show_text","contents":{"text":"Please report bugs on GitHub!"}}}
 
 ##> their health
 execute if entity @s[team=hunters] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.hunters.hp"},"color":"aqua"},{"text":" health remaining"}]
@@ -42,10 +42,10 @@ execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"n
 tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@s","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@s","objective":"hnr.zpos"},"color":"aqua"}]
 
 ##> Retire from game
-tellraw @s ["","Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.retire"}},"to retire from the game"]
+#tellraw @s ["","Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.retire"}},"to retire from the game"]
 
 ##> Spell cooldown for hunters 
 execute if entity @s[team=hunters] run execute unless score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
-execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
+execute if entity @s[team=hunters] run execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
 tellraw @s[team=!hunters] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
 tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]

@@ -18,7 +18,7 @@ team leave @a
 execute as @a run trigger hnr.information
 
 #> Announce game reset
-gamemode survival @a
+gamemode adventure @a
 tellraw @a {"text":"Game has been reset!","color":"dark_red"}
 
 #> Set game stats to Not Running

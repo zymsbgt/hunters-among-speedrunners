@@ -25,4 +25,9 @@ execute as @a[scores={hnr.ishealer=0}] at @a[scores={hnr.ishealer=0}] run effect
 execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=0},distance=0..15] minecraft:regeneration 4 0 true
 execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=1},distance=2..15] minecraft:regeneration 4 0 true 
 
+#> When new player is detected, set gamemode to adventure mode
+execute as @a[scores={hnr.showwelcmsg=0}] run gamemode adventure @s
+execute as @a[scores={hnr.showwelcmsg=0}] run scoreboard players set @s hnr.showwelcmsg 1
+
+#> Run this function again after 1s
 schedule function hunters_and_runners:long_tick 1s

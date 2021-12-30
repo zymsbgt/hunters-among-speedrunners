@@ -50,9 +50,11 @@ scoreboard objectives add hnr.spell.cast trigger
 scoreboard objectives add hnr.stats trigger
 ##> Allows hunters to reset spell cooldown
 scoreboard objectives add hnr.spellreset trigger
-##> Various Hunter spells
+##> Hunter spell list
 scoreboard objectives add hnr.spell.list trigger
-
+##> Player retirement
+scoreboard objectives add hnr.retire trigger
+scoreboard objectives add hnr.retirecnfm trigger
 
 #> Add teams
 team add hunters

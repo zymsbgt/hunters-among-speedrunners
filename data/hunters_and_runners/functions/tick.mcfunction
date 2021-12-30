@@ -8,6 +8,8 @@ execute as @a[team=hunters,scores={hnr.hunters.hp=0}] run function hunters_and_r
 execute as @a[team=jester,scores={hnr.runners.hp=0}] run function hunters_and_runners:jester/death
 execute as @a[scores={hnr.stats=1..}] run function hunters_and_runners:stats
 execute as @a[scores={hnr.spellreset=1..}] run function hunters_and_runners:reset/hunter_reset_cooldown
+execute as @a[scores={hnr.retire=1..}] run function hunters_and_runners:reset/player_retire
+execute as @a[scores={hnr.retirecnfm=1..}] run function hunters_and_runners:reset/player_retire_confirm
 
 #>Enable triggers
 scoreboard players enable @a hnr.hunters.join
@@ -18,6 +20,8 @@ scoreboard players enable @a hnr.spell.list
 scoreboard players enable @a hnr.stats
 scoreboard players enable @a hnr.spellreset
 scoreboard players enable @a hnr.spell.cast
+scoreboard players enable @a hnr.retire
+scoreboard players enable @a hnr.retirecnfm
 
 #> Remove any rouge tracking or rescue compasses
 kill @e[nbt={Item:{tag:{compass_type:"tracking_device"}}}]

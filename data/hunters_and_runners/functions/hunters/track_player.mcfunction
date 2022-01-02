@@ -7,8 +7,8 @@ execute unless entity @a[tag=tracking] if entity @s[nbt={Dimension:"minecraft:th
 
 #> Debug message for runner (toggable in settings)
 execute if score notify_when_tracked hnr.settings matches 1 run title @a[tag=tracking] actionbar {"text":"You are being tracked"}
-execute if score notify_when_tracked hnr.settings matches 2 run execute unless score @s hnr.spell.cool matches 0 run title @a[tag=tracking] actionbar ["","Hunter's spell ",{"text":"is ready","color":"green"}]
-execute if score notify_when_tracked hnr.settings matches 2 run execute if score @s hnr.spell.cool matches 0 run title @a[tag=tracking] actionbar ["","Hunter spell is on cooldown for ",{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},"s"]
+execute if score notify_when_tracked hnr.settings matches 2 run execute if score @s hnr.spell.cool matches 0 run title @a[tag=tracking] actionbar ["","Hunter's spell ",{"text":"is ready","color":"green"}]
+execute if score notify_when_tracked hnr.settings matches 2 run execute unless score @s hnr.spell.cool matches 0 run title @a[tag=tracking] actionbar ["","Hunter spell is on cooldown for ",{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},"s"]
 
 #> Update the compass
 execute if entity @a[tag=tracking] run function hunters_and_runners:hunters/compass/update

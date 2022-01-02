@@ -36,6 +36,7 @@ scoreboard objectives add hnr.ishealer dummy
 scoreboard objectives add hnr.dragonkilled minecraft.killed:minecraft.ender_dragon
 ##> Show welcome message
 scoreboard objectives add hnr.showwelcmsg dummy
+scoreboard players set @a hnr.showwelcmsg 0
 
 #> Add triggers
 ##> Show the menu

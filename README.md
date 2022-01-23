@@ -4,7 +4,8 @@ Minecraft minigame datapack based on speedrunning and deception. <br/>
 For setup instructions, visit https://docs.google.com/document/d/1kOOY_4Y6hiFj-rFSk3dRmzn4dvPnB_-x7hS3OopZyJQ/edit?usp=sharing <br/>
 Goes well with the Grave datapack by VanillaTweaks. Get it here: https://vanillatweaks.net/picker/datapacks/ <br/>
 Only tested on Paper v1.16.5 (build 567). Get it here: https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/567/downloads/paper-1.16.5-567.jar <br/>
-I recommend using this modpack specially designed for this datapack, courtesy of Darkblade! https://github.com/IntoTheVoid-900/hunters-amoung-speedrunners-client-pack <br/>
+I recommend using this modpack specially designed for this datapack, courtesy of Darkblade! https://www.curseforge.com/minecraft/modpacks/has-client-pack <br/>
+Modpack source code here: https://github.com/IntoTheVoid-900/hunters-amoung-speedrunners-client-pack
 Do note that the modpack is optional, but I would highly recommend it as it has performance and visual enhancements as well as built in proximity voice chat. <br/>
 This minigame requires a proximity voice chat mod such as Mumble or Simple Voice Chat. The latter has already included one in the modpack above for you.
 

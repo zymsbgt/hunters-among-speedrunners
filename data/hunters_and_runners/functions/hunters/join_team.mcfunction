@@ -16,8 +16,3 @@ tellraw @s ["",{"text":"You are now a Hunter,","color":"aqua"},{"text":"\n"},{"t
 function hunters_and_runners:hunters/give_compass
 function hunters_and_runners:hunters/spells/set_cooldown
 schedule function hunters_and_runners:hunters/spells/reduce_cooldown 1s
-
-#>Tell runners that they've switched teams
-#title @s times 20 100 20
-#title @s title {"text":"Hunter","bold":true,"color":"aqua"}
-#title @s subtitle ["",{"selector":"@a[team=hunters]","color":"aqua"},{"text":" are the hunters","color":"white"},{"text":" "}]

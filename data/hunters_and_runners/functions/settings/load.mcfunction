@@ -19,3 +19,4 @@ execute unless score enable_healer hnr.settings matches 0.. run scoreboard playe
 execute unless score show_hunter_coords hnr.settings matches 0.. run scoreboard players set show_hunter_coords hnr.settings 3
 execute unless score notify_when_tracked hnr.settings matches 0.. run scoreboard players set notify_when_tracked hnr.settings 2
 execute unless score spell_cooldown_debug hnr.settings matches 0.. run scoreboard players set spell_cooldown_debug hnr.settings 0
+execute unless score admin_chooses_teams hnr.settings matches 0.. run scoreboard players set admin_chooses_teams hnr.settings 0

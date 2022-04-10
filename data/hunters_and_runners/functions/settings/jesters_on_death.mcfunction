@@ -1,3 +1,5 @@
+##> This file is no longer used, feel free to delete this
+
 #> Toggle our setting
 execute if score jesters_on_death hnr.settings matches 1 run scoreboard players set jesters_on_death hnr.settings 2
 execute if score jesters_on_death hnr.settings matches 0 run scoreboard players set jesters_on_death hnr.settings 1

@@ -110,14 +110,15 @@ tellraw @a[scores={hnr.ishealer=1..}] {"text":"You are a healer, too! You and yo
 
 #> Set gamemode to survival mode (legacy position, move the code here if anything breaks)
 
-#> Kill Counters
+#> Reset Kill Counters
 scoreboard players set @a[gamemode=!spectator] hnr.killed 0
 scoreboard players set @a[gamemode=!spectator] hnr.killed_by 0
 
-#> Give Signal Flares
+#> Give Signal Flares and Grave Keys
 playsound minecraft:block.note_block.pling master @a[team=!hunters] ~ ~ ~ 50 1
 execute if score number_of_hunters hnr.settings matches 2 run give @a[gamemode=survival] firework_rocket{display:{Name:"\"Proximity Signal Flare\"",Lore:["\"Launch it to get attention from nearby players. Use wisely!\""]},Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:0,Colors:[I;14602026]}]}} 1
 execute if score number_of_hunters hnr.settings matches 3 run give @a[gamemode=survival] firework_rocket{display:{Name:"\"Proximity Signal Flare\"",Lore:["\"Launch it to get attention from nearby players. Use wisely!\""]},Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:0,Colors:[I;14602026]}]}} 2
+give @a[gamemode=survival] minecraft:player_head{gravesKey:1b,display:{Name:'["",{"text":"Grave Key","italic":false,"color":"yellow"}]',Lore:['{"text":"Right-click a grave while holding exactly one of this to forcibly open it.","color":"gray","italic":false}','{"text":"Placing this down will break its functionality.","color":"gray","italic":false}']},SkullOwner:{Id:[I;0,0,0,0],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWVjNzA3NjllMzYzN2E3ZWRiNTcwMmJjYzQzM2NjMjQyYzJmMjIzNWNiNzNiOTQwODBmYjVmYWZmNDdiNzU0ZSJ9fX0="}]}}} 1
 
 #> If runner limit is not reached, allow last chance for spectators to join the game as a runner
 #execute if score respect_runner_limit hnr.settings matches 0 run

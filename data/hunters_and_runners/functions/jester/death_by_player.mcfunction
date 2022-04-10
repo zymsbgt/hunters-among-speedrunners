@@ -23,7 +23,7 @@ execute if entity @a[scores={hnr.killed=1..},team=hunters] as @a[scores={hnr.kil
 execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed=1..}] run kill @s
 execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed=1..}] run gamemode spectator
 execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed=1..}] run playsound minecraft:entity.wither.death master @a[scores={hnr.killed=1..}] ~ ~ ~ 50 1
-#duplicate line with line 27
+#duplicate line with line 20
 execute if entity @a[scores={hnr.killed=1..},team=hunters] as @a[scores={hnr.killed=1..}] run scoreboard players remove Hunters hnr.teams.amount 1
 
 #> Inform Jester that they won
@@ -33,20 +33,27 @@ playsound block.bell.use master @s ~ ~ ~ 50 1
 #> Remove the Jester from the game (or change team if specified in settings)
 team leave @s
 
-#> If jesters_on_death == 0, Take the role of the killer
+#> Take the role of the killer
 #> If the killer is a runner, as the killed join the runners team
-execute if score jesters_on_death hnr.settings matches 0 if entity @a[scores={hnr.killed=1..},team=runners] as @s run function hunters_and_runners:runners/join_team
+execute if entity @a[scores={hnr.killed=1..},team=runners] as @s run function hunters_and_runners:runners/join_team
 #> If the killer is a hunter, as the killed join the hunters team
-execute if score jesters_on_death hnr.settings matches 0 if entity @a[scores={hnr.killed=1..},team=hunters] as @s run function hunters_and_runners:hunters/join_team
+execute if entity @a[scores={hnr.killed=1..},team=hunters] as @s run function hunters_and_runners:hunters/join_team
 
-#> If jesters_on_death == 1, Let Jester decide their role
-execute if score jesters_on_death hnr.settings matches 1 run tellraw @s ["",{"text":"You won as a ","bold":true,"color":"green"},{"text":"Jester","bold":true,"color":"light_purple"},{"text":"!","bold":true,"color":"green"}]
-execute if score jesters_on_death hnr.settings matches 1 run tellraw @s "Now, choose which team you wanna join"
-execute if score jesters_on_death hnr.settings matches 1 run tellraw @s {"text":"*==================*","color":"gold"}
-execute if score jesters_on_death hnr.settings matches 1 run tellraw @s ["",{"text":"| ","color":"gold"},{"text":"[Runners]","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hnr.runners.join"}},"  ",{"text":"[Hunters]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.hunters.join"}},{"text":" |","color":"gold"}]
-execute if score jesters_on_death hnr.settings matches 1 run tellraw @s {"text":"*==================*","color":"gold"}
+#> If jesters_on_death == 1, Let Jester decide their role (jesters_on_death is now depreciated)
+#execute if score jesters_on_death hnr.settings matches 1 run tellraw @s ["",{"text":"You won as a ","bold":true,"color":"green"},{"text":"Jester","bold":true,"color":"light_purple"},{"text":"!","bold":true,"color":"green"}]
+#execute if score jesters_on_death hnr.settings matches 1 run tellraw @s "Now, choose which team you wanna join"
+#execute if score jesters_on_death hnr.settings matches 1 run tellraw @s {"text":"*==================*","color":"gold"}
+#execute if score jesters_on_death hnr.settings matches 1 run tellraw @s ["",{"text":"| ","color":"gold"},{"text":"[Runners]","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hnr.runners.join"}},"  ",{"text":"[Hunters]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.hunters.join"}},{"text":" |","color":"gold"}]
+#execute if score jesters_on_death hnr.settings matches 1 run tellraw @s {"text":"*==================*","color":"gold"}
 
-# Reset kill counters
+#> Remove all teams from killer
 execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed=1..}] run team leave @a[scores={hnr.killed=1..}]
+
+#> Reset kill counters
 scoreboard players reset @a hnr.killed_by
 scoreboard players reset @a hnr.killed
+
+#> If Jester is the last player standing, the game ends in a draw
+#execute unless entity @a[gamemode=survival,distance=2..] run title @a title {"text":"Draw!","color":"gray"}
+#execute unless entity @a[gamemode=survival,distance=2..] run playsound block.bell.use master @a ~ ~ ~ 50 1
+#execute unless entity @a[gamemode=survival,distance=2..] run function hunters_and_runners:reset/resetconfirm

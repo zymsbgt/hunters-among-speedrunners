@@ -108,8 +108,6 @@ tellraw @a[team=jester] ["",{"text":"You are "},{"text":"The Jester","color":"da
 execute if score enable_jester hnr.settings matches 1 run tellraw @a[team=!jester] {"text":"There is a mystery Jester in the game. Don't kill them else you'll be eliminated from the game","color":"dark_purple"}
 tellraw @a[scores={hnr.ishealer=1..}] {"text":"You are a healer, too! You and your friends will regenerate health as long as you stick together!","italic":true}
 
-#> Set gamemode to survival mode (legacy position, move the code here if anything breaks)
-
 #> Reset Kill Counters
 scoreboard players set @a[gamemode=!spectator] hnr.killed 0
 scoreboard players set @a[gamemode=!spectator] hnr.killed_by 0

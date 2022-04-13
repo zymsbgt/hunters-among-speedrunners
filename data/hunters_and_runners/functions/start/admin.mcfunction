@@ -8,4 +8,8 @@ title @a[gamemode=spectator] subtitle {"text":"You have chosen to spectate the m
 scoreboard players reset @a hnr.killed
 scoreboard players reset @a hnr.killed_by
 
-#> RoleSelector gets to decide everyone's roles
+#> Give all players a unique ID
+scoreboard objectives add uid dummy
+tag @a remove teamAssigned
+execute as @a[gamemode=survival,team=!hunters] run function hunters_and_runners:runners/id/apply
+execute as @s run function hunters_and_runners:start/admin/information

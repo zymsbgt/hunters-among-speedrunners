@@ -74,12 +74,3 @@ function hunters_and_runners:hunters/spells/reduce_cooldown
 
 #> Start tracking/updating compasses
 function hunters_and_runners:long_tick
-
-#> Add Bossbar (Experimental)
-#bossbar add tracked {"text":"You are being tracked"}
-bossbar set tracked max 20
-bossbar set tracked color red
-bossbar set tracked players @a[tag=tracking]
-bossbar set tracked style notched_10
-bossbar set tracked visible true
-bossbar set tracked value 20

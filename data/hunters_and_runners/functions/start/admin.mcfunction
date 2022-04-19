@@ -12,4 +12,5 @@ scoreboard players reset @a hnr.killed_by
 scoreboard objectives add uid dummy
 tag @a remove teamAssigned
 execute as @a[gamemode=survival,team=!hunters] run function hunters_and_runners:runners/id/apply
+# Shouldn't the above statement be hunters_and_runners:runners/id/clear instead of apply?
 execute as @s run function hunters_and_runners:start/admin/information

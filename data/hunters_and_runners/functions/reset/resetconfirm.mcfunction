@@ -10,6 +10,7 @@ scoreboard players set @a hnr.tracking_id 0
 scoreboard players reset @a hnr.usedflare
 scoreboard players set @a hnr.ishealer 0
 scoreboard players reset @a hnr.spell.count
+advancement revoke @a everything
 
 #> Clear teams
 team leave @a

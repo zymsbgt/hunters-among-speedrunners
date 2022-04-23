@@ -34,6 +34,7 @@ scoreboard objectives add hnr.usedcompass minecraft.used:compass
 scoreboard objectives add hnr.ishealer dummy
 ##> Win Citeria for runners
 scoreboard objectives add hnr.dragonkilled minecraft.killed:minecraft.ender_dragon
+scoreboard objectives add hnr.witherkilled minecraft.killed:minecraft.wither
 ##> Show welcome message
 scoreboard objectives add hnr.showwelcmsg dummy
 scoreboard players set @a hnr.showwelcmsg 0

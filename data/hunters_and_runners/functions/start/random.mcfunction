@@ -10,6 +10,7 @@ title @a[gamemode=spectator] subtitle {"text":"You have chosen to spectate the m
 scoreboard players reset @a hnr.killed
 scoreboard players reset @a hnr.killed_by
 gamerule announceAdvancements false
+gamerule sendCommandFeedback false
 execute at @p run setworldspawn ~ ~ ~
 execute if score confirm_kills hnr.settings matches 2 run scoreboard objectives setdisplay sidebar hnr.teams.amount
 execute if score spectators_generate_chunks hnr.settings matches 1 run gamerule spectatorsGenerateChunks true
@@ -24,7 +25,6 @@ execute if score display_health hnr.settings matches 3 run scoreboard objectives
 execute if score display_health hnr.settings matches 3 run scoreboard objectives setdisplay list hnr.runners.hp
 execute if score show_death_messages hnr.settings matches 1 run gamerule showDeathMessages true
 execute if score show_death_messages hnr.settings matches 0 run gamerule showDeathMessages false
-gamerule sendCommandFeedback false
 execute if score spell_cooldown_debug hnr.settings matches 1 run scoreboard objectives setdisplay sidebar hnr.spell.cool
 execute if score enable_team_colors hnr.settings matches 1 run team modify hunters color aqua
 execute if score enable_team_colors hnr.settings matches 1 run team modify runners color red

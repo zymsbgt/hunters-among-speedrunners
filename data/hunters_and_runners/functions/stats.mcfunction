@@ -38,6 +38,7 @@ execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"n
 
 ##> If player is hunter, tell them who the compass is pointing towards (to-do)
 
+
 ##> Tell the player their current location
 tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@s","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@s","objective":"hnr.zpos"},"color":"aqua"}]
 

@@ -5,7 +5,7 @@ scoreboard players set @s hnr.spell.cast 0
 execute unless score @s hnr.spell.cool matches 0 run tellraw @s {"text":"Your spell is currently either on cooldown, or you are not a hunter","color":"aqua"}
 
 #> Cast spell
-execute if score @s hnr.spell.cool matches 0 run effect give @a[team=!hunters] minecraft:nausea 30 1 true
+execute if score @s hnr.spell.cool matches 0 run effect give @a[team=!hunters,gamemode=!spectator] minecraft:nausea 30 1 true
 execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"Your spell has been casted","color":"aqua"}]
 execute if score @s hnr.spell.cool matches 0 run tellraw @a[team=hunters] ["",{"text":"Your huntermate has casted nausea upon the runners","color":"aqua"}]
 execute if score @s hnr.spell.cool matches 0 run playsound entity.elder_guardian.curse hostile @a[team=runners] ~ ~ ~ 50 1

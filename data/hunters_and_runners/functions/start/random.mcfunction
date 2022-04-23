@@ -86,13 +86,6 @@ execute if score give_players_invisibility hnr.settings matches 1 run effect giv
 execute if score give_players_invisibility hnr.settings matches 2 run effect give @a minecraft:invisibility 20 1 true
 execute if score give_players_invisibility hnr.settings matches 3 run effect give @a minecraft:invisibility 30 1 true
 
-execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_sword
-execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_axe
-execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_pickaxe
-execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] torch 8
-execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stick 4
-execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] bread 4
-
 #> Set gamemode to survival mode
 gamemode survival @a[team=hunters]
 gamemode survival @a[team=runners]
@@ -124,6 +117,14 @@ playsound minecraft:block.note_block.pling master @a[team=!hunters] ~ ~ ~ 50 1
 execute if score number_of_hunters hnr.settings matches 2 run give @a[gamemode=survival] firework_rocket{display:{Name:"\"Proximity Signal Flare\"",Lore:["\"Launch it to get attention from nearby players. Use wisely!\""]},Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:0,Colors:[I;14602026]}]}} 1
 execute if score number_of_hunters hnr.settings matches 3 run give @a[gamemode=survival] firework_rocket{display:{Name:"\"Proximity Signal Flare\"",Lore:["\"Launch it to get attention from nearby players. Use wisely!\""]},Fireworks:{Flight:3,Explosions:[{Type:1,Flicker:0,Trail:0,Colors:[I;14602026]}]}} 2
 give @a[gamemode=survival] minecraft:player_head{gravesKey:1b,display:{Name:'["",{"text":"Grave Key","italic":false,"color":"yellow"}]',Lore:['{"text":"Right-click a grave while holding exactly one of this to forcibly open it.","color":"gray","italic":false}','{"text":"Placing this down will break its functionality.","color":"gray","italic":false}']},SkullOwner:{Id:[I;0,0,0,0],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWVjNzA3NjllMzYzN2E3ZWRiNTcwMmJjYzQzM2NjMjQyYzJmMjIzNWNiNzNiOTQwODBmYjVmYWZmNDdiNzU0ZSJ9fX0="}]}}} 1
+
+#> Give Starter Kit
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_sword
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_axe
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_pickaxe
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] torch 8
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stick 4
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] bread 4
 
 #> If runner limit is not reached, allow last chance for spectators to join the game as a runner
 #execute if score respect_runner_limit hnr.settings matches 0 run

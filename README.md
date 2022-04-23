@@ -45,7 +45,7 @@ View spell list:
 Defeat the Ender Dragon without getting killed!
 
 ### Jesters (enable by typing `/trigger hnr.information`):
-Get killed by another player to win!
+We're currently reworking on Jesters to hopefully make the game more chaotic and fun!
 
 ## Settings:
 _Can only be changed by ops_

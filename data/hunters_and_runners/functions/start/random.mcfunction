@@ -86,6 +86,13 @@ execute if score give_players_invisibility hnr.settings matches 1 run effect giv
 execute if score give_players_invisibility hnr.settings matches 2 run effect give @a minecraft:invisibility 20 1 true
 execute if score give_players_invisibility hnr.settings matches 3 run effect give @a minecraft:invisibility 30 1 true
 
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_sword
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_axe
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stone_pickaxe
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] torch 8
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stick 4
+execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] bread 4
+
 #> Set gamemode to survival mode
 gamemode survival @a[team=hunters]
 gamemode survival @a[team=runners]

@@ -21,3 +21,4 @@ execute unless score notify_when_tracked hnr.settings matches 0.. run scoreboard
 execute unless score spell_cooldown_debug hnr.settings matches 0.. run scoreboard players set spell_cooldown_debug hnr.settings 0
 execute unless score admin_chooses_teams hnr.settings matches 0.. run scoreboard players set admin_chooses_teams hnr.settings 0 
 execute unless score set_runners_goal hnr.settings matches 0.. run scoreboard players set set_runners_goal hnr.settings 0
+execute unless score give_starter_kit hnr.settings matches 0.. run scoreboard players set give_starter_kit hnr.settings 0

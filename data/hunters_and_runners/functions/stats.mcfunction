@@ -13,7 +13,7 @@ execute if score is_game_running hnr.settings matches 1 run tellraw @s ["",{"tex
 execute if score is_game_running hnr.settings matches 0 run tellraw @s ["",{"text":"There is currently no game running"}]
 
 ##> If game is running, show how many players are participating
-execute if score is_game_running hnr.settings matches 1 run tellraw @s ["",{"text":"Participating players remaining: "},{"selector":"@a[gamemode=survival]"}]
+execute if score is_game_running hnr.settings matches 1 run tellraw @s ["",{"text":"Participating players remaining: "},{"selector":"@a[gamemode=survival,team=!]"}]
 
 ##> player team
 execute if entity @s[team=] run tellraw @s ["",{"text":"You are a spectator"}]

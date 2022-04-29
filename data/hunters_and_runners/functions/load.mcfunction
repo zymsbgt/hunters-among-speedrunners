@@ -38,6 +38,8 @@ scoreboard objectives add hnr.witherkilled minecraft.killed:minecraft.wither
 ##> Show welcome message
 scoreboard objectives add hnr.showwelcmsg dummy
 scoreboard players set @a hnr.showwelcmsg 0
+##> Starter Kit
+scoreboard objectives add hnr.eligiblekit deathCount
 
 #> Add triggers
 ##> Show the menu
@@ -59,6 +61,8 @@ scoreboard objectives add hnr.spell.list trigger
 ##> Player retirement
 scoreboard objectives add hnr.retire trigger
 scoreboard objectives add hnr.retirecnfm trigger
+##> Claim Starter Kit
+scoreboard objectives add hnr.claimkit trigger
 
 #> Add teams
 team add hunters

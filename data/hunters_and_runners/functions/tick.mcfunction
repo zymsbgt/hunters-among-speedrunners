@@ -22,6 +22,7 @@ scoreboard players enable @a hnr.spellreset
 scoreboard players enable @a hnr.spell.cast
 scoreboard players enable @a hnr.retire
 scoreboard players enable @a hnr.retirecnfm
+scoreboard players enable @a hnr.claimkit
 
 #> Remove any rouge tracking or rescue compasses
 kill @e[nbt={Item:{tag:{compass_type:"tracking_device"}}}]

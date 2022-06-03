@@ -7,7 +7,7 @@ Only tested on Paper v1.16.5 (build 567). Get it here: https://papermc.io/api/v2
 I recommend using this modpack specially designed for this datapack, courtesy of Darkblade! https://www.curseforge.com/minecraft/modpacks/has-client-pack <br/>
 Modpack source code here: https://github.com/IntoTheVoid-900/hunters-amoung-speedrunners-client-pack
 Do note that the modpack is optional, but I would highly recommend it as it has performance and visual enhancements as well as built in proximity voice chat. <br/>
-This minigame requires a proximity voice chat mod such as Mumble or Simple Voice Chat. The latter has already included one in the modpack above for you.
+This minigame requires a proximity voice chat mod such as Plasmo voice. It is included in the recommended modpack for your convenience.
 
 ## Download:
 For stable builds, check the Releases on this repo. <br/>

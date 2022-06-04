@@ -41,9 +41,6 @@ View spell list:
 /trigger hnr.spell.list
 ```
 
-### Runners:
-Defeat the Ender Dragon without getting killed!
-
 ### Jesters (enable by typing `/trigger hnr.information`):
 We're currently reworking on Jesters to hopefully make the game more chaotic and fun!
 

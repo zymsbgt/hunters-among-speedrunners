@@ -1,9 +1,9 @@
-# Bugs
-
-- Example Bug 1
-- Example Bug 2
-
-# Future Features
-
-- Example Feature 1
-- Example Feature 2
+- More discussion on Jester needed!
+- Allow the host/admin of the game to decide everyone's roles, then when game starts, put host into spectator mode (not important)
+- Change server's default gamemode to adventure mode (do NOT force gamemode)
+- Configure permission manager to disable whispering for players
+- Remove piglin brutes (optional)
+- Increase wither skull drop rate (optional)
+- New goal: Find and kill a Warden (1.19)
+- Set PlayerSleepPercentage (1.17)
+- Update to 1.17

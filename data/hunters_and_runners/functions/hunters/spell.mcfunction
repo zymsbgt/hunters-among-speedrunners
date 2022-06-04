@@ -29,6 +29,6 @@ tellraw @s[team=!hunters] ["",{"text":"You cannot cast a spell as you are not a 
 tellraw @s [{"text":"=====================","color":"gold"}]
 
 #> Show hunters how much time left till they can cast a spell
-execute if score @s hnr.spell.cool matches 1.. run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
-execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
-execute if score @s hnr.spell.cool matches ..-1 run tellraw @s ["",{"text":"Please stop the game! Error found in spell cooldown: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
+execute if score @s[team=hunters] hnr.spell.cool matches 1.. run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
+execute if score @s[team=hunters] hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
+execute if score @s[team=hunters] hnr.spell.cool matches ..-1 run tellraw @s ["",{"text":"Datapack error found in spell cooldown: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]

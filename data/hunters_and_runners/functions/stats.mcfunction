@@ -18,12 +18,18 @@ execute if score is_game_running hnr.settings matches 1 run tellraw @s ["",{"tex
 ##> player team
 execute if entity @s[team=] run tellraw @s ["",{"text":"You are a spectator"}]
 execute if entity @s[team=runners] run tellraw @s ["",{"text":"You are a "},{"text":"Runner","color":"red"}]
-execute if entity @s[team=runners] run tellraw @s {"text":"Kill the Ender Dragon or all hunters to win!","color":"red"}
+execute if score set_runners_goal hnr.settings matches 0 run execute if entity @s[team=runners] run tellraw @s {"text":"Kill the Ender Dragon or all hunters to win!","color":"red"}
+execute if score set_runners_goal hnr.settings matches 1 run execute if entity @s[team=runners] run tellraw @s {"text":"Kill a Wither or all hunters to win!","color":"red"}
+execute if score set_runners_goal hnr.settings matches 2 run execute if entity @s[team=runners] run tellraw @s {"text":"Defend a village from a raid or kil all hunters to win!","color":"red"}
+
 execute if entity @s[team=hunters] run tellraw @s ["",{"text":"You are a "},{"text":"Hunter","color":"aqua"}]
 execute if entity @s[team=hunters] run tellraw @s ["",{"text":"The hunters are "},{"selector":"@a[team=hunters]","color":"aqua"}]
-execute if entity @s[team=hunters] run tellraw @s {"text":"Defend the Ender Dragon and Kill all runners to win!","color":"aqua"}
+execute if score set_runners_goal hnr.settings matches 0 run execute if entity @s[team=hunters] run tellraw @s {"text":"Defend the Ender Dragon or Kill all runners to win!","color":"aqua"}
+execute if score set_runners_goal hnr.settings matches 1 run execute if entity @s[team=hunters] run tellraw @s {"text":"Kill all runners to win before they spawn and kill a Wither!","color":"aqua"}
+execute if score set_runners_goal hnr.settings matches 2 run execute if entity @s[team=hunters] run tellraw @s {"text":"Villagers and runners are your enemies","color":"aqua"}
+
 execute if entity @s[team=jester] run tellraw @s ["",{"text":"You are "},{"text":"The Jester","color":"light_purple"}]
-execute if entity @s[team=jester] run tellraw @s {"text":"Trick other players into killing you to win!","color":"dark_purple"}
+execute if entity @s[team=jester] run tellraw @s {"text":"You're a neutral party. Have fun and cause chaos! If you're killed by a player, they'll die and you'll inherit their role.","color":"dark_purple"}
 
 ##> if player is the healer
 execute if score @s hnr.ishealer matches 1 run tellraw @s {"text":"You are also a healer","italic":true}
@@ -35,9 +41,6 @@ execute if entity @s[team=hunters] run tellraw @s ["",{"text":"You have "},{"sco
 execute if entity @s[team=runners] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"red"},{"text":" health remaining"}]
 execute if entity @s[team=jester] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"light_purple"},{"text":" health remaining"}]
 execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"gray"},{"text":" health remaining"}]
-
-##> If player is hunter, tell them who the compass is pointing towards (to-do)
-
 
 ##> Tell the player their current location
 tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@s","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@s","objective":"hnr.zpos"},"color":"aqua"}]

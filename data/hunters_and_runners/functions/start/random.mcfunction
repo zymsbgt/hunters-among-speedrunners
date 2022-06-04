@@ -135,7 +135,12 @@ execute as @a[gamemode=survival,team=!hunters] run function hunters_and_runners:
 
 #> Give compasses
 execute as @a[team=hunters] run function hunters_and_runners:hunters/give_compass
-execute as @a[team=hunters] run function hunters_and_runners:hunters/spells/set_cooldown
+#execute as @a[team=hunters] run function hunters_and_runners:hunters/spells/set_cooldown
+execute if score hunter_sabotage hnr.settings matches 0 run scoreboard players set @a[team=hunters] hnr.spell.cool 300
+execute if score hunter_sabotage hnr.settings matches 1 run scoreboard players set @a[team=hunters] hnr.spell.cool 600
+execute if score hunter_sabotage hnr.settings matches 2 run scoreboard players set @a[team=hunters] hnr.spell.cool 900
+execute if score hunter_sabotage hnr.settings matches 3 run scoreboard players set @a[team=hunters] hnr.spell.cool 1800
+execute if score hunter_sabotage hnr.settings matches 4 run scoreboard players set @a[team=hunters] hnr.spell.cool 2700
 schedule function hunters_and_runners:hunters/spells/reduce_cooldown 1s
 
 #> Set game stats to Running

@@ -42,6 +42,11 @@ execute if entity @s[team=runners] run tellraw @s ["",{"text":"You have "},{"sco
 execute if entity @s[team=jester] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"light_purple"},{"text":" health remaining"}]
 execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"gray"},{"text":" health remaining"}]
 
+##> If player is hunter, tell them who the compass is pointing towards (to-do)
+execute if entity @s[team=hunters] run tellraw @s[scores={hnr.tracking_id=0}]
+execute if entity @a[tag=tracking] if score @s hnr.tracking_id = player_to_track hnr.tracking_id run tellraw @s[team=hunters] ["","Your compass is pointing towards ",{"selector":"@a[tag=tracking]","color":"red"}]
+execute if entity @s[team=hunters] if score @s hnr.tracking_id = player_to_track hnr.tracking_id run tellraw @s ["","Your compass has detected runners ",{"selector":"@a[tag=checked]","color":"red"}]
+
 ##> Tell the player their current location
 tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@s","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@s","objective":"hnr.zpos"},"color":"aqua"}]
 

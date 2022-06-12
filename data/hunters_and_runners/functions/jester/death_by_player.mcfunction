@@ -35,11 +35,11 @@ team leave @s
 
 #> Take the role of the killer
 #> If the killer is a runner, as the killed join the runners team
-execute if entity @a[scores={hnr.killed=1..},team=runners] as @s run function hunters_and_runners:runners/join_team
-execute if entity @a[scores={hnr.killed=1..},team=runners] as @s run title @s subtitle {"text":"You are now a runner","color":"aqua"}
+#execute if entity @a[scores={hnr.killed=1..},team=runners] as @s run function hunters_and_runners:runners/join_team
+#execute if entity @a[scores={hnr.killed=1..},team=runners] as @s run title @s subtitle {"text":"You are now a runner","color":"aqua"}
 #> If the killer is a hunter, as the killed join the hunters team
-execute if entity @a[scores={hnr.killed=1..},team=hunters] as @s run function hunters_and_runners:hunters/join_team
-execute if entity @a[scores={hnr.killed=1..},team=hunters] as @s run title @s subtitle {"text":"You are now a hunter","color":"red"}
+#execute if entity @a[scores={hnr.killed=1..},team=hunters] as @s run function hunters_and_runners:hunters/join_team
+#execute if entity @a[scores={hnr.killed=1..},team=hunters] as @s run title @s subtitle {"text":"You are now a hunter","color":"red"}
 
 #> If jesters_on_death == 1, Let Jester decide their role (jesters_on_death is now depreciated)
 #execute if score jesters_on_death hnr.settings matches 1 run tellraw @s ["",{"text":"You won as a ","bold":true,"color":"green"},{"text":"Jester","bold":true,"color":"light_purple"},{"text":"!","bold":true,"color":"green"}]
@@ -57,19 +57,22 @@ scoreboard players reset @a hnr.killed
 
 execute if entity @a[team=jester] run function hunters_and_runners:runners/id/clear
 
-#> If Jester is the last player standing, the game ends in a draw
-#execute unless entity @a[gamemode=survival,distance=2..] run title @a title {"text":"Draw!","color":"gray"}
-#execute unless entity @a[gamemode=survival,distance=2..] run playsound block.bell.use master @a ~ ~ ~ 50 1
-#execute unless entity @a[gamemode=survival,distance=2..] run function hunters_and_runners:reset/resetconfirm
+##> The following code shouldn't ever be executed I think
 
 #> Note: The events below should never happen as the Jester will always take the role of the player who killed the Jester
 #> This is likely redundent code
+
 ##> If no runners are left, the hunters win
-#execute unless entity @a[team=runners] run title @a title {"text":"Hunters Win!","color":"aqua"}
-#execute unless entity @a[team=runners] run playsound block.bell.use master @a ~ ~ ~ 50 1
-#execute unless entity @a[team=runners] run function hunters_and_runners:reset/resetconfirm
+execute unless entity @a[team=runners] run title @a title {"text":"Hunters Win!","color":"aqua"}
+execute unless entity @a[team=runners] run playsound block.bell.use master @a ~ ~ ~ 50 1
+execute unless entity @a[team=runners] run function hunters_and_runners:reset/resetconfirm
 
 ##> If no hunters are left, the runners win
-#execute unless entity @a[team=hunters] run title @a title {"text":"Runners Win!","color":"red"}
-#execute unless entity @a[team=hunters] run playsound block.bell.use master @a ~ ~ ~ 50 1
-#execute unless entity @a[team=hunters] run function hunters_and_runners:reset/resetconfirm
+execute unless entity @a[team=hunters] run title @a title {"text":"Runners Win!","color":"red"}
+execute unless entity @a[team=hunters] run playsound block.bell.use master @a ~ ~ ~ 50 1
+execute unless entity @a[team=hunters] run function hunters_and_runners:reset/resetconfirm
+
+#> If Jester is the last player standing (or all players are dead), the game ends in a draw
+execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run title @a title {"text":"Draw!","color":"gray"}
+#execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run run playsound block.bell.use master @a ~ ~ ~ 50 1
+#execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run run function hunters_and_runners:reset/resetconfirm

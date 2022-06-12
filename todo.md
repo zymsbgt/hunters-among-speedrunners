@@ -17,9 +17,10 @@ New suggestions:
 - Reduce duration of Hunter's strength spell to 5s (BlueMystery)
 - Have the Jester join the opposite team of the player who killed them (BlueMystery)
 
-Completed but untested:
-- Make starter kits not redeemable to players in spectator mode (or even better, not show the text once they're out of the game)
+Unsure if I should add these in:
 - Jester now takes role of player they kill
+
+Completed but untested:
 - Added redundent code to check when Jester dies if there's only one side (hunters or runners) remaining (jester/death_by_player)
 
 Completed and tested:
@@ -28,3 +29,5 @@ Completed and tested:
 - increase repair cost to (Hunter's?) axe and bow to stop cheating
 - Changed Jester description
 - Edited resetconfirm.mcfunction
+- Compass does not update when set to track nearest runner. (Happens when only the Jester is alive so far)
+- Make starter kits not redeemable to players in spectator mode (or even better, not show the text once they're out of the game)

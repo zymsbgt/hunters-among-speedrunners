@@ -51,8 +51,8 @@ execute as @a[scores={hnr.showwelcmsg=0}] run gamemode adventure @s
 execute as @a[scores={hnr.showwelcmsg=0}] run scoreboard players set @s hnr.showwelcmsg 1
 
 #> Tell any dead player they can claim a starter kit
-execute if score give_starter_kit hnr.settings matches 1 run execute as @a[scores={hnr.runners.hp=0}] run tellraw @s ["","You can claim a starter kit! ",{"text":"[Claim now]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.claimkit"},"hoverEvent":{"action":"show_text","contents":["Claim your starter kit!"]}}]
-execute if score give_starter_kit hnr.settings matches 2 run execute if score nether_loaded hnr.settings matches 1 run execute as @a[scores={hnr.runners.hp=0}] run tellraw @s ["","You can claim a starter kit! ",{"text":"[Claim now]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.claimkit"},"hoverEvent":{"action":"show_text","contents":["Claim your starter kit!"]}}]
+execute if score give_starter_kit hnr.settings matches 1 run execute as @a[scores={hnr.runners.hp=0},gamemode=!spectator,team=!] run tellraw @s ["","You can claim a starter kit! ",{"text":"[Claim now]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.claimkit"},"hoverEvent":{"action":"show_text","contents":["Claim your starter kit!"]}}]
+execute if score give_starter_kit hnr.settings matches 2 run execute if score nether_loaded hnr.settings matches 1 run execute as @a[scores={hnr.runners.hp=0},gamemode=!spectator,team=!] run tellraw @s ["","You can claim a starter kit! ",{"text":"[Claim now]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.claimkit"},"hoverEvent":{"action":"show_text","contents":["Claim your starter kit!"]}}]
 
 #> Give starter kit to any player who claims it
 execute as @a[scores={hnr.claimkit=1..}] run function hunters_and_runners:starterkit/check_eligibility

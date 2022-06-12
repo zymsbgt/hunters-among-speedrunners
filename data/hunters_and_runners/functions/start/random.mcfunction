@@ -103,8 +103,8 @@ title @a[team=hunters] title {"text":"Hunter","bold":true,"color":"aqua"}
 title @a[team=hunters] subtitle ["",{"selector":"@a[team=hunters]","color":"aqua"},{"text":" are the hunters","color":"dark_aqua"},{"text":" "}]
 tellraw @a[team=hunters] ["",{"text":"You are now a Hunter,","color":"aqua"},{"text":"\n"},{"text":"Keep the compass in your main/off hand or the last slot on the hotbar for it to update automatically.","color":"aqua"},{"text":"\n"},{"text":"Note: The compass makes a noise that can be heard by others when held in the main/offhand slot.","italic":true,"color":"gray"}]
 title @a[team=jester] title {"text":"Jester","bold":true,"color":"light_purple"}
-title @a[team=jester] subtitle {"text":"Trick other players into killing you to win!"}
-tellraw @a[team=jester] ["",{"text":"You are "},{"text":"The Jester","color":"dark_purple"},{"text":". Get killed by another player to win!"}]
+title @a[team=jester] subtitle {"text":"Chaos! Chaos!"}
+tellraw @a[team=jester] ["",{"text":"You are "},{"text":"The Jester","color":"dark_purple"},{"text":". Have fun causing chaos! Other players will die when they kill you."}]
 execute if score enable_jester hnr.settings matches 1 run tellraw @a[team=!jester] {"text":"There is a mystery Jester in the game. Don't kill them else you'll be eliminated from the game","color":"dark_purple"}
 tellraw @a[scores={hnr.ishealer=1..}] {"text":"You are a healer, too! You and your friends will regenerate health as long as you stick together!","italic":true}
 

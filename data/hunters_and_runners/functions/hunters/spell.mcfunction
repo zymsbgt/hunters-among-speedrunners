@@ -2,14 +2,14 @@
 scoreboard players set @s hnr.spell.list 0
 
 #> Spacing
-tellraw @s [" "]
-tellraw @s [" "]
+tellraw @s[team=hunters] [" "]
+tellraw @s[team=hunters] [" "]
 
 ##> Spell cooldown reset for hunters 
 tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
 
 #> Show Spell Title
-tellraw @s [{"text":"===== Cast a Spell =====","color":"gold"}]
+tellraw @s[team=hunters] [{"text":"===== Cast a Spell =====","color":"gold"}]
 
 #> Show Spell Menu for Hunters
 execute if entity @s[team=hunters] run tellraw @s [{"text":"[Regeneration]","color":"aqua","clickEvent":{"action":"run_command","value":"/trigger hnr.spell.cast set 1"},"hoverEvent":{"action":"show_text","value":{"text":"Regenerate Hunters health for 30s"}}},{"text":"              ","hoverEvent":{"action":"show_text","contents":[{"text":""}]},"clickEvent":{"action":"run_command","value":""}},{"text":"[Resistance]","color":"blue","clickEvent":{"action":"run_command","value":"/trigger hnr.spell.cast set 2"},"hoverEvent":{"action":"show_text","value":{"text":"Decreases Hunters damage intake for 30s"}}}]
@@ -26,7 +26,7 @@ execute if entity @s[team=hunters] run tellraw @s [{"text":"[Night Vision]","col
 tellraw @s[team=!hunters] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
 
 #> Show Spell Footer
-tellraw @s [{"text":"=====================","color":"gold"}]
+tellraw @s[team=hunters] [{"text":"=====================","color":"gold"}]
 
 #> Show hunters how much time left till they can cast a spell
 execute if score @s[team=hunters] hnr.spell.cool matches 1.. run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]

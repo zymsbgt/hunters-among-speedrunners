@@ -1,9 +1,11 @@
-#> Actiavtes when Reset is pressed on information menu or when game ends
+#> Activates when Reset is pressed on information menu or when game ends
+
+#> Clear all potion effects
+effect clear @a
 
 #> Reset variables to default values
 gamerule sendCommandFeedback true
 time set 0
-effect give @a minecraft:saturation 3 255 true
 scoreboard players reset @a hnr.spell.cool
 scoreboard players reset Hunters hnr.teams.amount
 scoreboard players set @a hnr.tracking_id 0
@@ -11,6 +13,9 @@ scoreboard players reset @a hnr.usedflare
 scoreboard players set @a hnr.ishealer 0
 scoreboard players reset @a hnr.spell.count
 advancement revoke @a everything
+
+#> Heal up all players
+effect give @a minecraft:saturation 3 255 true
 
 #> Clear teams
 team leave @a

@@ -29,7 +29,7 @@ execute if score set_runners_goal hnr.settings matches 1 run execute if entity @
 execute if score set_runners_goal hnr.settings matches 2 run execute if entity @s[team=hunters] run tellraw @s {"text":"Villagers and runners are your enemies","color":"aqua"}
 
 execute if entity @s[team=jester] run tellraw @s ["",{"text":"You are "},{"text":"The Jester","color":"light_purple"}]
-execute if entity @s[team=jester] run tellraw @s {"text":"You're a neutral party. Have fun and cause chaos! If you're killed by a player, they'll die and you'll inherit their role.","color":"dark_purple"}
+execute if entity @s[team=jester] run tellraw @s {"text":"You're a neutral party. Have fun and cause chaos! If you get tired of being Jester, kill or get killed by another player to inherit their role! If another player kills you, they die instantly.","color":"dark_purple"}
 
 ##> if player is the healer
 execute if score @s hnr.ishealer matches 1 run tellraw @s {"text":"You are also a healer","italic":true}

@@ -57,22 +57,20 @@ scoreboard players reset @a hnr.killed
 
 execute if entity @a[team=jester] run function hunters_and_runners:runners/id/clear
 
-##> The following code shouldn't ever be executed I think
-
-#> Note: The events below should never happen as the Jester will always take the role of the player who killed the Jester
-#> This is likely redundent code
+#> Note: This part of the datapack is buggy and I couldn't fix this while in development. Could someone please help?
 
 ##> If no runners are left, the hunters win
 execute unless entity @a[team=runners] run title @a title {"text":"Hunters Win!","color":"aqua"}
 execute unless entity @a[team=runners] run playsound block.bell.use master @a ~ ~ ~ 50 1
-execute unless entity @a[team=runners] run function hunters_and_runners:reset/resetconfirm
 
 ##> If no hunters are left, the runners win
 execute unless entity @a[team=hunters] run title @a title {"text":"Runners Win!","color":"red"}
 execute unless entity @a[team=hunters] run playsound block.bell.use master @a ~ ~ ~ 50 1
-execute unless entity @a[team=hunters] run function hunters_and_runners:reset/resetconfirm
 
-#> If Jester is the last player standing (or all players are dead), the game ends in a draw
-execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run title @a title {"text":"Draw!","color":"gray"}
-#execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run run playsound block.bell.use master @a ~ ~ ~ 50 1
-#execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run run function hunters_and_runners:reset/resetconfirm
+#> If Jester is the last player standing (or all players are dead), the game ends in a draw. This should only happen in testing, never in actual gameplay.
+#execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run title @a title {"text":"Draw!","color":"gray"}
+execute unless entity @a[team=hunters] run execute unless entity @a[team=runners] run tellraw @a {"text":"Error in hunters_and_runners:jester/death_by_player, could not accurately determine which team won the game on line 72","italic":true,"color":"gray"}
+
+##> Reset the game
+execute unless entity @a[team=runners] run function hunters_and_runners:reset/resetconfirm
+execute unless entity @a[team=hunters] run function hunters_and_runners:reset/resetconfirm

@@ -8,7 +8,16 @@ Items brought over:
 - Update to 1.17
 
 New items to fix:
-- 
+- Healer's regeneration is too slow
+- Can you run commands while in spectator mode? If so, code commands to allow spectators to teleport to other players
+- Move Runner's Goal out of experimental settings
+- Hunter's compass stopped working after some runners were eliminated from the game
+- Hint for the above: Check if player coordinates are cleared after they die
+- https://cdn.discordapp.com/attachments/964369738442608690/987602512553054238/unknown.png?size=4096
+- If runners goal is set to Kill the Wither, show all achievements made in the Nether
+- Make compass able to point at Withers around the world (optional)
+- Hunters name and coordinates on actionbar do not match. (distance discrepency)
+
 
 New suggestions:
 - Change Jester so that The Hunters believe the Jester to be on their team, however, they know that one of their teammates is actually the Jester. The Jester does not see who the hunters are, and the Jester's goal is to win with the runners. The Jester is given a dummy compass.
@@ -29,12 +38,4 @@ Completed but untested:
 - 
 
 Completed and tested:
-- Runners POV when /spell is typed, todo: remove the yellow text
-- Increase wither skull drop rate (optional)
-- increase repair cost to (Hunter's?) axe and bow to stop cheating
-- Changed Jester description
-- Edited resetconfirm.mcfunction
-- Compass does not update when set to track nearest runner. (Happens when only the Jester is alive so far)
-- Make starter kits not redeemable to players in spectator mode (or even better, not show the text once they're out of the game)
-- Added redundent code to check when Jester dies if there's only one side (hunters or runners) remaining (jester/death_by_player)
-- Figure out what happened when the 2 hunters and Jester killed each other last round
+- 

@@ -8,8 +8,7 @@ Items brought over:
 - Update to 1.17
 
 New items to fix:
-- Can you run commands while in spectator mode? If so, code commands to allow spectators to teleport to other players
-- Make compass able to point at Withers around the world (optional)
+- 
 
 New suggestions:
 - Change Jester so that The Hunters believe the Jester to be on their team, however, they know that one of their teammates is actually the Jester. The Jester does not see who the hunters are, and the Jester's goal is to win with the runners. The Jester is given a dummy compass.
@@ -28,6 +27,7 @@ Properly determining which team won upon Jester's death (jester/death_by_player)
 
 Issues I won't fix:
 - Healer's regeneration is too slow (likely the playtest server was too potato)
+- Make compass able to point at Withers around the world
 
 Completed but untested:
 - Hunters name and coordinates on actionbar do not match. (distance discrepency)

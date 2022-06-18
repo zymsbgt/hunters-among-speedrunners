@@ -8,16 +8,8 @@ Items brought over:
 - Update to 1.17
 
 New items to fix:
-- Healer's regeneration is too slow
 - Can you run commands while in spectator mode? If so, code commands to allow spectators to teleport to other players
-- Move Runner's Goal out of experimental settings
-- Hunter's compass stopped working after some runners were eliminated from the game
-- Hint for the above: Check if player coordinates are cleared after they die
-- https://cdn.discordapp.com/attachments/964369738442608690/987602512553054238/unknown.png?size=4096
-- If runners goal is set to Kill the Wither, show all achievements made in the Nether
 - Make compass able to point at Withers around the world (optional)
-- Hunters name and coordinates on actionbar do not match. (distance discrepency)
-
 
 New suggestions:
 - Change Jester so that The Hunters believe the Jester to be on their team, however, they know that one of their teammates is actually the Jester. The Jester does not see who the hunters are, and the Jester's goal is to win with the runners. The Jester is given a dummy compass.
@@ -34,8 +26,19 @@ Issues unable to replicate:
 Issues I can't fix:
 Properly determining which team won upon Jester's death (jester/death_by_player)
 
+Issues I won't fix:
+- Healer's regeneration is too slow (likely the playtest server was too potato)
+
 Completed but untested:
-- 
+- Hunters name and coordinates on actionbar do not match. (distance discrepency)
+- If runners goal is set to Kill the Wither, show all achievements made in the Nether
+- Hunter's compass stopped working after some runners were eliminated from the game
+- Spectators can now teleport to players at random
 
 Completed and tested:
-- 
+- Nerf Hunter Strength spell
+- Change Hunter's Axe from Netherite to Iron Axe
+- Hunter spell error messages are now red instead of aqua
+- Fixed healer role could be assigned to a spectator (this has never happened before, so thankfully I spotted this error through the datapack code itself)
+- Starter kit wrongly proclaims that participating players cannot claim starter kits as they're a spectator
+- Starter kit gives upgraded iron set kit when the End is discovered

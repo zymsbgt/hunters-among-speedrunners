@@ -56,5 +56,8 @@ tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objec
 ##> Spell cooldown for hunters 
 execute if entity @s[team=hunters] run execute unless score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
 execute if entity @s[team=hunters] run execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
-tellraw @s[team=!hunters] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
-tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
+tellraw @s[team=!hunters,gamemode=!spectator] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
+tellraw @s[team=hunters] ["",{"text":"Something wrong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
+
+##> Spectators can teleport to other players
+tellraw @s[gamemode=spectator] ["","Bored of your current location? ",{"text":"[Teleport to another player]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.teleport"}}]

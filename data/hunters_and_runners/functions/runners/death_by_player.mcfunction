@@ -28,7 +28,8 @@ execute if score runners_on_death hnr.settings matches 3 run trigger hnr.hunters
 scoreboard players reset @a hnr.killed_by
 scoreboard players reset @a hnr.killed
 
-execute if entity @a[team=runners] run function hunters_and_runners:runners/id/clear
+execute if entity @a[team=runners] run function hunters_and_runners:runners/id/apply
+execute if entity @a[team=jester] run function hunters_and_runners:runners/id/apply
 
 ##> If no runners are left, the hunters win
 execute unless entity @a[team=runners] run title @a title {"text":"Hunters Win!","color":"aqua"}

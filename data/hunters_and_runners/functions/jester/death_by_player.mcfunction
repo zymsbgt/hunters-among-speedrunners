@@ -55,7 +55,8 @@ execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed=1..}] run
 scoreboard players reset @a hnr.killed_by
 scoreboard players reset @a hnr.killed
 
-execute if entity @a[team=jester] run function hunters_and_runners:runners/id/clear
+execute if entity @a[team=runners] run function hunters_and_runners:runners/id/apply
+execute if entity @a[team=jester] run function hunters_and_runners:runners/id/apply
 
 #> Note: This part of the datapack is buggy and I couldn't fix this while in development. Could someone please help?
 

@@ -9,10 +9,10 @@ function hunters_and_runners:hunters/tick
 function hunters_and_runners:jester/tick
 
 #> If the first player in a match has reached the nether or end respectively, set gamerules for the dimension (fix for a bug on Bukkit/Spigot servers)
-execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run gamerule announceAdvancements false
+execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score set_runners_goal hnr.settings matches 0 run gamerule announceAdvancements false
 execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run gamerule sendCommandFeedback false
 execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run scoreboard players set nether_loaded hnr.settings 1
-execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run gamerule announceAdvancements false
+#execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run gamerule announceAdvancements false
 execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run gamerule sendCommandFeedback false
 execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run scoreboard players set end_loaded hnr.settings 1
 
@@ -44,7 +44,6 @@ execute if score set_runners_goal hnr.settings matches 2 run execute if entity @
 #> When healer is nearby, regenerate player health
 execute as @a[scores={hnr.ishealer=0}] at @a[scores={hnr.ishealer=0}] run effect give @a[scores={hnr.ishealer=1},distance=0..15] minecraft:regeneration 4 0 true
 execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=0},distance=0..15] minecraft:regeneration 4 0 true
-execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=1},distance=2..15] minecraft:regeneration 4 0 true 
 
 #> When new player is detected, set gamemode to adventure mode
 execute as @a[scores={hnr.showwelcmsg=0}] run gamemode adventure @s
@@ -56,6 +55,12 @@ execute if score give_starter_kit hnr.settings matches 2 run execute if score ne
 
 #> Give starter kit to any player who claims it
 execute as @a[scores={hnr.claimkit=1..}] run function hunters_and_runners:starterkit/check_eligibility
+
+#> Teleport spectators
+execute as @a[scores={hnr.teleport=1..},team=] run tp @s @r[team=!]
+execute as @a[scores={hnr.teleport=1..},team=] run tellraw @s {"text":"Whooosh!","color":"green"}
+execute as @a[scores={hnr.teleport=1..},team=!] run tellraw @s {"text":"Only spectators can teleport to players","color":"red"}
+execute as @a[scores={hnr.teleport=1..}] run scoreboard players set @s hnr.teleport 0
 
 #> Run this function again after 1s
 schedule function hunters_and_runners:long_tick 1s

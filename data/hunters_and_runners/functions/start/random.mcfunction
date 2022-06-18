@@ -10,7 +10,6 @@ title @a[gamemode=spectator] subtitle {"text":"You have chosen to spectate the m
 scoreboard players reset @a hnr.killed
 scoreboard players reset @a hnr.killed_by
 gamerule announceAdvancements false
-gamerule sendCommandFeedback false
 execute at @p run setworldspawn ~ ~ ~
 execute if score confirm_kills hnr.settings matches 2 run scoreboard objectives setdisplay sidebar hnr.teams.amount
 execute if score spectators_generate_chunks hnr.settings matches 1 run gamerule spectatorsGenerateChunks true
@@ -31,8 +30,8 @@ execute if score enable_team_colors hnr.settings matches 1 run team modify runne
 execute if score enable_team_colors hnr.settings matches 1 run team modify jester color light_purple
 execute if score send_command_feedback hnr.settings matches 1 run gamerule sendCommandFeedback true
 execute if score send_command_feedback hnr.settings matches 0 run gamerule sendCommandFeedback false
-scoreboard players set end_loaded hnr.settings 0
 scoreboard players set nether_loaded hnr.settings 0
+scoreboard players set end_loaded hnr.settings 0
 
 #>Starting locations for players
 tp @a @s
@@ -52,17 +51,15 @@ execute if score number_of_hunters hnr.settings matches 1 run scoreboard players
 execute if score number_of_hunters hnr.settings matches 2 run scoreboard players set Hunters hnr.teams.amount 2
 execute if score number_of_hunters hnr.settings matches 3 run scoreboard players set Hunters hnr.teams.amount 3
 
-#> Assign Runners, algorithm 2 (ignores 9 runner limit)
+#> Assign Runners
 execute if score respect_runner_limit hnr.settings matches 0 run team join runners @a[team=,gamemode=survival]
-
-#> Assign Runners, algorithm 1 (enforces 9 runner limit)
 execute if score respect_runner_limit hnr.settings matches 1 run team join runners @a[team=,gamemode=survival,limit=9,sort=random]
 execute if score respect_runner_limit hnr.settings matches 1 run title @a[team=,gamemode=!spectator] title {"text":"Spectator"}
 execute if score respect_runner_limit hnr.settings matches 1 run title @a[team=,gamemode=!spectator] subtitle {"text":"Sorry, the player limit has been reached"}
 execute if score respect_runner_limit hnr.settings matches 1 run gamemode spectator @a[team=!]
 
 #> Assign Healer, if enabled
-execute if score enable_healer hnr.settings matches 1 run scoreboard players set @r hnr.ishealer 1
+execute if score enable_healer hnr.settings matches 1 run scoreboard players set @r[team=!] hnr.ishealer 1
 
 #> Clear all potion effects, XP, inventory and ground items
 clear @a
@@ -84,9 +81,9 @@ execute if score enable_team_colors hnr.settings matches 1 run team modify hunte
 execute if score enable_team_colors hnr.settings matches 1 run team modify runners nametagVisibility never
 execute if score enable_team_colors hnr.settings matches 1 run team modify jester nametagVisibility never
 
-execute if score give_players_invisibility hnr.settings matches 1 run effect give @a minecraft:invisibility 10 1 true
-execute if score give_players_invisibility hnr.settings matches 2 run effect give @a minecraft:invisibility 20 1 true
-execute if score give_players_invisibility hnr.settings matches 3 run effect give @a minecraft:invisibility 30 1 true
+execute if score give_players_invisibility hnr.settings matches 1 run effect give @a minecraft:invisibility 10 0 true
+execute if score give_players_invisibility hnr.settings matches 2 run effect give @a minecraft:invisibility 20 0 true
+execute if score give_players_invisibility hnr.settings matches 3 run effect give @a minecraft:invisibility 30 0 true
 
 #> Set gamemode to survival mode
 gamemode survival @a[team=hunters]
@@ -100,7 +97,10 @@ title @a[team=runners] title {"text":"Runner","bold":true,"color":"red"}
 execute if score number_of_hunters hnr.settings matches 1 run title @a[team=runners] subtitle ["",{"text":"There is "},{"text":"1 hunter","color":"aqua"},{"text":" in the game"}]
 execute if score number_of_hunters hnr.settings matches 2 run title @a[team=runners] subtitle ["",{"text":"There are "},{"text":"2 hunters","color":"aqua"},{"text":" in the game"}]
 execute if score number_of_hunters hnr.settings matches 3 run title @a[team=runners] subtitle ["",{"text":"There are "},{"text":"3 hunters","color":"aqua"},{"text":" in the game"}]
-tellraw @a[team=runners] [{"text":"You are a Runner. Find and kill either the Ender Dragon or all hunters to win.","color":"red"}]
+execute if score set_runners_goal hnr.settings matches 0 run tellraw @a[team=runners] [{"text":"You are a Runner. Find and kill either the Ender Dragon or all hunters to win.","color":"red"}]
+execute if score set_runners_goal hnr.settings matches 1 run tellraw @a[team=runners] [{"text":"You are a Runner. Spawn and kill a Wither or kill all hunters to win.","color":"red"}]
+execute if score set_runners_goal hnr.settings matches 2 run tellraw @a[team=runners] [{"text":"You are a Runner. Defend a village from a raid or kill all hunters to win.","color":"red"}]
+execute if score set_runners_goal hnr.settings matches 3 run tellraw @a[team=runners] [{"text":"You are a Runner. Find and kill either a Warden or all hunters to win.","color":"red"}]
 title @a[team=hunters] title {"text":"Hunter","bold":true,"color":"aqua"}
 title @a[team=hunters] subtitle ["",{"selector":"@a[team=hunters]","color":"aqua"},{"text":" are the hunters","color":"dark_aqua"},{"text":" "}]
 tellraw @a[team=hunters] ["",{"text":"You are now a Hunter,","color":"aqua"},{"text":"\n"},{"text":"Keep the compass in your main/off hand or the last slot on the hotbar for it to update automatically.","color":"aqua"},{"text":"\n"},{"text":"Note: The compass makes a noise that can be heard by others when held in the main/offhand slot.","italic":true,"color":"gray"}]

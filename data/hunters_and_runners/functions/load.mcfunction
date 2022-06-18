@@ -63,6 +63,8 @@ scoreboard objectives add hnr.retire trigger
 scoreboard objectives add hnr.retirecnfm trigger
 ##> Claim Starter Kit
 scoreboard objectives add hnr.claimkit trigger
+##> For spectators to teleport
+scoreboard objectives add hnr.teleport trigger
 
 #> Add teams
 team add hunters

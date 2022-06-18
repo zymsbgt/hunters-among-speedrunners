@@ -6,7 +6,7 @@ tellraw @s[team=hunters] [" "]
 tellraw @s[team=hunters] [" "]
 
 ##> Spell cooldown reset for hunters 
-tellraw @s[team=hunters] ["",{"text":"Sum Ting Wong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
+tellraw @s[team=hunters] ["",{"text":"Something wrong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
 
 #> Show Spell Title
 tellraw @s[team=hunters] [{"text":"===== Cast a Spell =====","color":"gold"}]

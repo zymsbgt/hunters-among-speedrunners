@@ -5,7 +5,7 @@ scoreboard players set @s hnr.spell.cast 0
 execute unless score @s hnr.spell.cool matches 0 run tellraw @s {"text":"Your spell is currently either on cooldown, or you are not a hunter","color":"aqua"}
 
 #> Cast spell
-execute if score @s hnr.spell.cool matches 0 run effect give @a[team=hunters] strength 30 1 true
+execute if score @s hnr.spell.cool matches 0 run effect give @a[team=hunters] strength 30 0 true
 execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"Your spell has been casted","color":"aqua"}]
 execute if score @s hnr.spell.cool matches 0 run tellraw @a[team=hunters] ["",{"text":"Your huntermate has casted strength upon you","color":"aqua"}]
 execute if score @s hnr.spell.cool matches 0 run playsound ambient.cave master @a[team=!hunters] ~ ~ ~ 50 1

@@ -29,6 +29,8 @@ execute if score runners_on_death hnr.settings matches 3 run trigger hnr.runners
 scoreboard players reset @a hnr.killed_by
 scoreboard players reset @a hnr.killed
 
+scoreboard players set @s hnr.tracking_id 0
+
 ##> If no hunters are left, the runners win
 execute unless entity @a[team=hunters] run title @a title {"text":"Runners Win!","color":"red"}
 execute unless entity @a[team=hunters] run playsound block.bell.use master @a ~ ~ ~ 50 1

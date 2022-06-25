@@ -14,7 +14,7 @@ execute if entity @s[team=hunters,nbt={Dimension:"minecraft:the_end"}] unless en
 execute in minecraft:overworld run execute store result storage hnr:compass Items[].tag.LodestonePos.X int 1 run data get entity @a[tag=tracking,limit=1] Pos[0]
 execute in minecraft:overworld run execute store result storage hnr:compass Items[].tag.LodestonePos.Y int 1 run data get entity @a[tag=tracking,limit=1] Pos[1]
 execute in minecraft:overworld run execute store result storage hnr:compass Items[].tag.LodestonePos.Z int 1 run data get entity @a[tag=tracking,limit=1] Pos[2]
-execute in minecraft:overworld run data merge block 0 2 1 {Text1:'{"selector":"@a[tag=tracking]"}'}
+execute in minecraft:overworld run data merge block 0 2 1 {Text1:'{"selector":"@a[tag=tracking,limit=1]"}'}
 execute in minecraft:overworld if score rename_compass_to_runner hnr.settings matches 1 run data modify storage hnr:compass Items[].tag.display.Name set from block 0 2 1 Text1
 execute in minecraft:overworld if score rename_compass_to_runner hnr.settings matches 0 run data modify storage hnr:compass Items[].tag.display.Name set value '{"text":"Tracking Compass"}'
 tag @a[tag=tracking] remove tracking

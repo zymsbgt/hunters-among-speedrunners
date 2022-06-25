@@ -12,7 +12,7 @@ New items to fix:
 
 New suggestions:
 - Change Jester so that The Hunters believe the Jester to be on their team, however, they know that one of their teammates is actually the Jester. The Jester does not see who the hunters are, and the Jester's goal is to win with the runners. The Jester is given a dummy compass.
-- 
+- Make Spectators teleport menu show all runners (hint: use tracking IDs)
 
 Unsure if I should add these in:
 - Jester now takes role of player they kill
@@ -30,10 +30,6 @@ Issues I won't fix:
 - Make compass able to point at Withers around the world
 
 Completed but untested:
-- Hunters name and coordinates on actionbar do not match. (distance discrepency)
-- If runners goal is set to Kill the Wither, show all achievements made in the Nether
-- Hunter's compass stopped working after some runners were eliminated from the game
-- Spectators can now teleport to players at random
 
 Completed and tested:
 - Nerf Hunter Strength spell
@@ -42,3 +38,7 @@ Completed and tested:
 - Fixed healer role could be assigned to a spectator (this has never happened before, so thankfully I spotted this error through the datapack code itself)
 - Starter kit wrongly proclaims that participating players cannot claim starter kits as they're a spectator
 - Starter kit gives upgraded iron set kit when the End is discovered
+- If runners goal is set to Kill the Wither, show all achievements made in the Nether
+- Spectators can now teleport to players at random
+- Hunters name and coordinates on actionbar do not match. (distance discrepency)
+- Hunter's compass stopped working after some runners were eliminated from the game

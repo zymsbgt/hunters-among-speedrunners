@@ -16,7 +16,8 @@ execute if score is_game_running hnr.settings matches 0 run tellraw @s ["",{"tex
 execute if score is_game_running hnr.settings matches 1 run tellraw @s ["",{"text":"Participating players remaining: "},{"selector":"@a[gamemode=survival,team=!]"}]
 
 ##> player team
-execute if entity @s[team=] run tellraw @s ["",{"text":"You are a spectator"}]
+execute if entity @s[team=,gamemode=spectator] run tellraw @s ["",{"text":"You are a spectator"}]
+execute if entity @s[team=,gamemode=!spectator] run tellraw @s ["",{"text":"You're a spectator who's not in spectator mode"}]
 execute if entity @s[team=runners] run tellraw @s ["",{"text":"You are a "},{"text":"Runner","color":"red"}]
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @s[team=runners] run tellraw @s {"text":"Kill the Ender Dragon or all hunters to win!","color":"red"}
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @s[team=runners] run tellraw @s {"text":"Kill a Wither or all hunters to win!","color":"red"}
@@ -32,9 +33,8 @@ execute if entity @s[team=jester] run tellraw @s ["",{"text":"You are "},{"text"
 execute if entity @s[team=jester] run tellraw @s {"text":"You're a neutral party. Have fun and cause chaos! If you get tired of being Jester, kill or get killed by another player to inherit their role! If another player kills you, they die instantly.","color":"dark_purple"}
 
 ##> if player is the healer
-execute if score @s hnr.ishealer matches 1 run tellraw @s {"text":"You are also a healer","italic":true}
-execute if score @s hnr.ishealer matches 0 run tellraw @s {"text":"You are not a healer","italic":true}
-tellraw @s {"text":"Healer is currently experimental, please report bugs if you notice anything wrong!","italic":true,"color":"gray","hoverEvent":{"action":"show_text","contents":{"text":"Please report bugs on GitHub!"}}}
+execute if score @s hnr.ishealer matches 1 run tellraw @s ["","You are ",{"text":"also a healer","color":"green"}]
+execute if score @s hnr.ishealer matches 0 run tellraw @s ["","You are ",{"text":"not a healer","color":"red"}]
 
 ##> their health
 execute if entity @s[team=hunters] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.hunters.hp"},"color":"aqua"},{"text":" health remaining"}]
@@ -42,22 +42,22 @@ execute if entity @s[team=runners] run tellraw @s ["",{"text":"You have "},{"sco
 execute if entity @s[team=jester] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"light_purple"},{"text":" health remaining"}]
 execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"gray"},{"text":" health remaining"}]
 
-##> If player is hunter, tell them who the compass is pointing towards (to-do)
+##> If player is hunter, tell them who the compass is pointing towards
 execute if entity @s[team=hunters] run tellraw @s[scores={hnr.tracking_id=0}]
-execute if entity @a[tag=tracking] if score @s hnr.tracking_id = player_to_track hnr.tracking_id run tellraw @s[team=hunters] ["","Your compass is pointing towards ",{"selector":"@a[tag=tracking]","color":"red"}]
-execute if entity @s[team=hunters] if score @s hnr.tracking_id = player_to_track hnr.tracking_id run tellraw @s ["","Your compass has detected runners ",{"selector":"@a[tag=checked]","color":"red"}]
+execute if entity @a[tag=tracking] if score @s hnr.tracking_id = player_to_track hnr.tracking_id run tellraw @s[team=hunters] ["","Your compass is tracking ",{"selector":"@a[tag=tracking]","color":"red"}]
+execute if entity @s[team=hunters] if score @s hnr.tracking_id = player_to_track hnr.tracking_id run tellraw @s ["","Your compass has checked ",{"selector":"@a[tag=checked]","color":"red"}]
 
 ##> Tell the player their current location
 tellraw @s ["",{"text":"Your current location is "},{"score":{"name":"@s","objective":"hnr.xpos"},"color":"red"},{"text":", "},{"score":{"name":"@s","objective":"hnr.ypos"},"color":"green"},{"text":", "},{"score":{"name":"@s","objective":"hnr.zpos"},"color":"aqua"}]
-
-##> Retire from game
-#tellraw @s ["","Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.retire"}},"to retire from the game"]
 
 ##> Spell cooldown for hunters 
 execute if entity @s[team=hunters] run execute unless score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell in: "},{"score":{"name":"@s","objective":"hnr.spell.cool"},"bold":true,"color":"gold"},{"text":" seconds","bold":true}]
 execute if entity @s[team=hunters] run execute if score @s hnr.spell.cool matches 0 run tellraw @s ["",{"text":"You can cast a spell!","bold":true,"color":"green"}]
 tellraw @s[team=!hunters,gamemode=!spectator] ["",{"text":"You cannot cast a spell as you are not a hunter","color":"red","bold":"true"}]
 tellraw @s[team=hunters] ["",{"text":"Something wrong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
+
+##> Retire from game
+tellraw @s ["","(Experimental!) Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.retire"}},"to retire from the game"]
 
 ##> Spectators can teleport to other players
 tellraw @s[gamemode=spectator] ["","Bored of your current location? ",{"text":"[Teleport to another player]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.teleport"}}]

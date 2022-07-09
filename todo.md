@@ -21,7 +21,8 @@ Unsure if I should add these in:
 - Make compass able to point at Withers around the world
 
 Issues I can't fix:
-Properly determining which team won upon Jester's death (jester/death_by_player)
+- Properly determining which team won upon Jester's death (jester/death_by_player)
+- Some players cannot retire from the game
 
 Completed but untested:
 

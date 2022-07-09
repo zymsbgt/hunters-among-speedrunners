@@ -147,3 +147,7 @@ schedule function hunters_and_runners:hunters/spells/reduce_cooldown 1s
 
 #> Set game stats to Running
 scoreboard players set is_game_running hnr.settings 1
+
+#> Warn all players if settings aren't compatible
+execute if score environment_kill hnr.settings matches 0 run execute if score runners_on_death hnr.settings matches 3 run tellraw @a ["",{"text":"[Warning] ","color":"gold"},{"text":"Respawn if environmental kill: No players ","color":"red"},{"text":"is not compatible with ","color":"gold"},{"text":"Gametype: Tag mode","color":"aqua"}]
+execute if score environment_kill hnr.settings matches 2 run execute if score confirm_kills hnr.settings matches 1.. run tellraw @a ["",{"text":"[Warning] ","color":"gold"},{"text":"Respawn if environmental kill: Hunters only ","color":"aqua"},{"text":"is only compatible with ","color":"gold"},{"text":"Announce Kills: Do not announce!","color":"red"}]

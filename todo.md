@@ -5,11 +5,9 @@ Items brought over:
 - Remove piglin brutes (optional)
 - New goal: Find and kill a Warden (1.19)
 - Set PlayerSleepPercentage (1.17)
-- Update to 1.17
 
 New items to fix:
-- Turn on gamerule doImmediateRespawn if gamemode is set to Tag
-- Figure out chat and item spam when players respawn when enviromental kill is set to eliminate players from the game
+- 
 
 New suggestions:
 - Change Jester so that The Hunters believe the Jester to be on their team, however, they know that one of their teammates is actually the Jester. The Jester does not see who the hunters are, and the Jester's goal is to win with the runners. The Jester is given a dummy compass.

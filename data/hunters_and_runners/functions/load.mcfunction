@@ -40,14 +40,11 @@ scoreboard objectives add hnr.showwelcmsg dummy
 scoreboard players set @a hnr.showwelcmsg 0
 ##> Starter Kit
 scoreboard objectives add hnr.eligiblekit deathCount
+scoreboard objectives add hnr.showkitmsg deathCount
 
 #> Add triggers
 ##> Show the menu
 scoreboard objectives add hnr.information trigger
-##> Join the Hunters team
-scoreboard objectives add hnr.hunters.join trigger
-##> Join the Runners team
-scoreboard objectives add hnr.runners.join trigger
 ##> Tracking specific Runners
 scoreboard objectives add hnr.tracking_id trigger
 ##> Casting spells (Hunters)

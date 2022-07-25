@@ -35,19 +35,16 @@ scoreboard objectives add hnr.ishealer dummy
 ##> Win Citeria for runners
 scoreboard objectives add hnr.dragonkilled minecraft.killed:minecraft.ender_dragon
 scoreboard objectives add hnr.witherkilled minecraft.killed:minecraft.wither
-##> Show welcome message
-scoreboard objectives add hnr.showwelcmsg dummy
-scoreboard players set @a hnr.showwelcmsg 0
+##> Detect new players who join (not working properly)
+#scoreboard objectives add hnr.showwelcmsg dummy
+#scoreboard players set @a hnr.showwelcmsg 0
 ##> Starter Kit
 scoreboard objectives add hnr.eligiblekit deathCount
+scoreboard objectives add hnr.showkitmsg deathCount
 
 #> Add triggers
 ##> Show the menu
 scoreboard objectives add hnr.information trigger
-##> Join the Hunters team
-scoreboard objectives add hnr.hunters.join trigger
-##> Join the Runners team
-scoreboard objectives add hnr.runners.join trigger
 ##> Tracking specific Runners
 scoreboard objectives add hnr.tracking_id trigger
 ##> Casting spells (Hunters)
@@ -74,9 +71,9 @@ team add jester
 #> Load default settings
 function hunters_and_runners:settings/load
 
-#> Show information to non hunter/runners
-execute if score is_game_running hnr.settings matches 0 run execute as @a[team=!runners,team=!hunters] run function hunters_and_runners:information
-execute if score is_game_running hnr.settings matches 1 run execute as @a[team=!runners,team=!hunters] run tellraw @a ["","Hunters Among Speedrunners datapack has been successfully reloaded! Not displaying information menu as a game is in progress. If hunter spell cooldowns have stopped, please ask an admin to ",{"text":"[Click Here]","color":"aqua","clickEvent":{"action":"run_command","value":"/schedule function hunters_and_runners:hunters/spells/reduce_cooldown 1s"},"hoverEvent":{"action":"show_text","contents":["This will resume the hunter's spell countdown"]}}]
+#> Show information menu
+execute if score is_game_running hnr.settings matches 0 run execute as @a run function hunters_and_runners:information
+execute if score is_game_running hnr.settings matches 1 run execute as @a run tellraw @a ["","Hunters Among Speedrunners datapack has been successfully reloaded! Not displaying information menu as a game is in progress. If hunter spell cooldowns have stopped, please ask an admin to ",{"text":"[Click Here]","color":"aqua","clickEvent":{"action":"run_command","value":"/schedule function hunters_and_runners:hunters/spells/reduce_cooldown 1s"},"hoverEvent":{"action":"show_text","contents":["This will resume the hunter's spell countdown"]}}]
 function hunters_and_runners:hunters/spells/reduce_cooldown
 
 #> Start tracking/updating compasses

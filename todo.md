@@ -6,7 +6,8 @@ Items I plan on implementing in the future
 - Removing the Jester from this datapack
 - Configure permission manager to disable whispering for players (this is a server site thing, see https://github.com/zymsbgt/hunters-among-speedrunners-server
 - Remove piglin brutes
-- New goal: Find and kill a Warden (1.19)
+- New runner goal: Find and kill a Warden (1.19)
+- New runner goal: Conquer an ocean monument
 - Set PlayerSleepPercentage (1.17)
 
 Suggestions from players:

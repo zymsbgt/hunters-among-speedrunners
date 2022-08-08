@@ -73,6 +73,7 @@ function hunters_and_runners:settings/load
 
 #> Show information menu
 execute if score is_game_running hnr.settings matches 0 run execute as @a run function hunters_and_runners:information
+execute if score is_game_running hnr.settings matches 0 run gamerule mobGriefing false
 execute if score is_game_running hnr.settings matches 1 run execute as @a run tellraw @a ["","Hunters Among Speedrunners datapack has been successfully reloaded! Not displaying information menu as a game is in progress. If hunter spell cooldowns have stopped, please ask an admin to ",{"text":"[Click Here]","color":"aqua","clickEvent":{"action":"run_command","value":"/schedule function hunters_and_runners:hunters/spells/reduce_cooldown 1s"},"hoverEvent":{"action":"show_text","contents":["This will resume the hunter's spell countdown"]}}]
 function hunters_and_runners:hunters/spells/reduce_cooldown
 

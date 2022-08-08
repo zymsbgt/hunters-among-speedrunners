@@ -5,6 +5,7 @@ effect clear @a
 
 #> Reset variables to default values
 gamerule sendCommandFeedback true
+gamerule mobGriefing false
 time set 0
 scoreboard players reset @a hnr.spell.cool
 scoreboard players reset Hunters hnr.teams.amount

@@ -10,6 +10,7 @@ title @a[gamemode=spectator] subtitle {"text":"You have chosen to spectate the m
 scoreboard players reset @a hnr.killed
 scoreboard players reset @a hnr.killed_by
 gamerule announceAdvancements false
+gamerule mobGriefing true
 execute at @p run setworldspawn ~ ~ ~
 execute if score confirm_kills hnr.settings matches 2 run scoreboard objectives setdisplay sidebar hnr.teams.amount
 execute if score spectators_generate_chunks hnr.settings matches 1 run gamerule spectatorsGenerateChunks true

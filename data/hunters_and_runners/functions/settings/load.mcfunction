@@ -22,3 +22,4 @@ execute unless score admin_chooses_teams hnr.settings matches 0.. run scoreboard
 execute unless score set_runners_goal hnr.settings matches 0.. run scoreboard players set set_runners_goal hnr.settings 0
 execute unless score give_starter_kit hnr.settings matches 0.. run scoreboard players set give_starter_kit hnr.settings 0
 execute unless score send_command_feedback hnr.settings matches 0.. run scoreboard players set send_command_feedback hnr.settings 0
+execute unless score players_sleeping_percentage hnr.settings matches 0.. run scoreboard players set players_sleeping_percentage hnr.settings 0

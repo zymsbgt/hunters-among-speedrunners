@@ -1,3 +1,5 @@
+##> Notice: This function is currently unused
+
 #> Clear all teams and set everyone's gamemode to survival
 team empty runners
 team empty hunters

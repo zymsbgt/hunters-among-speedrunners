@@ -1,6 +1,5 @@
 Items I don't plan on making or fixing (but you can feel free to create a pull request!)
 - Allow the host/admin of the game to decide everyone's roles, then when game starts, put host into spectator mode
-- Starter kit message spams player chat when player is dead
 
 Items I plan on implementing in the future
 - Removing the Jester from this datapack

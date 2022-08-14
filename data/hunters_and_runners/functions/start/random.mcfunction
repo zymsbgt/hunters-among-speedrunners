@@ -53,11 +53,10 @@ execute if score number_of_hunters hnr.settings matches 2 run scoreboard players
 execute if score number_of_hunters hnr.settings matches 3 run scoreboard players set Hunters hnr.teams.amount 3
 
 #> Assign Runners
-execute if score respect_runner_limit hnr.settings matches 0 run team join runners @a[team=,gamemode=survival]
-execute if score respect_runner_limit hnr.settings matches 1 run team join runners @a[team=,gamemode=survival,limit=9,sort=random]
-execute if score respect_runner_limit hnr.settings matches 1 run title @a[team=,gamemode=!spectator] title {"text":"Spectator"}
-execute if score respect_runner_limit hnr.settings matches 1 run title @a[team=,gamemode=!spectator] subtitle {"text":"Sorry, the player limit has been reached"}
-execute if score respect_runner_limit hnr.settings matches 1 run gamemode spectator @a[team=!]
+team join runners @a[team=,gamemode=survival,limit=9,sort=random]
+title @a[team=,gamemode=!spectator] title {"text":"Spectator"}
+title @a[team=,gamemode=!spectator] subtitle {"text":"Sorry, the player limit has been reached"}
+gamemode spectator @a[team=!]
 
 #> Assign Healer, if enabled
 execute if score enable_healer hnr.settings matches 1 run scoreboard players set @r[team=!] hnr.ishealer 1
@@ -128,9 +127,6 @@ execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!s
 execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] torch 8
 execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] stick 4
 execute if score give_starter_kit hnr.settings matches 1 run give @a[gamemode=!spectator] bread 4
-
-#> If runner limit is not reached, allow last chance for spectators to join the game as a runner
-#execute if score respect_runner_limit hnr.settings matches 0 run
 
 #> Update Runner IDs
 execute as @a[gamemode=survival,team=!hunters] run function hunters_and_runners:runners/id/clear

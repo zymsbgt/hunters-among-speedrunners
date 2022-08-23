@@ -13,8 +13,7 @@ gamerule announceAdvancements false
 gamerule mobGriefing true
 execute at @p run setworldspawn ~ ~ ~
 execute if score confirm_kills hnr.settings matches 2 run scoreboard objectives setdisplay sidebar hnr.teams.amount
-execute if score spectators_generate_chunks hnr.settings matches 1 run gamerule spectatorsGenerateChunks true
-execute if score spectators_generate_chunks hnr.settings matches 0 run gamerule spectatorsGenerateChunks false
+gamerule spectatorsGenerateChunks false
 execute if score worldborder_distance hnr.settings matches 0 run worldborder set 50000
 execute if score worldborder_distance hnr.settings matches 1 run worldborder set 6000
 execute if score worldborder_distance hnr.settings matches 2 run worldborder set 12000

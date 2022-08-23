@@ -3,7 +3,6 @@ execute unless score show_previous_pos hnr.settings matches 0.. run scoreboard p
 execute unless score rename_compass_to_runner hnr.settings matches 0.. run scoreboard players set rename_compass_to_runner hnr.settings 1
 execute unless score runners_on_death hnr.settings matches 0.. run scoreboard players set runners_on_death hnr.settings 1
 execute unless score number_of_hunters hnr.settings matches 0.. run scoreboard players set number_of_hunters hnr.settings 1
-execute unless score spectators_generate_chunks hnr.settings matches 0.. run scoreboard players set spectators_generate_chunks hnr.settings 0
 execute unless score worldborder_distance hnr.settings matches 0.. run scoreboard players set worldborder_distance hnr.settings 2
 execute unless score give_players_invisibility hnr.settings matches 0.. run scoreboard players set give_players_invisibility hnr.settings 2
 execute unless score hunter_sabotage hnr.settings matches 0.. run scoreboard players set hunter_sabotage hnr.settings 2
@@ -20,5 +19,5 @@ execute unless score notify_when_tracked hnr.settings matches 0.. run scoreboard
 execute unless score spell_cooldown_debug hnr.settings matches 0.. run scoreboard players set spell_cooldown_debug hnr.settings 0
 execute unless score admin_chooses_teams hnr.settings matches 0.. run scoreboard players set admin_chooses_teams hnr.settings 0 
 execute unless score set_runners_goal hnr.settings matches 0.. run scoreboard players set set_runners_goal hnr.settings 0
-execute unless score give_starter_kit hnr.settings matches 0.. run scoreboard players set give_starter_kit hnr.settings 0
+execute unless score give_starter_kit hnr.settings matches 0.. run scoreboard players set give_starter_kit hnr.settings 2
 execute unless score send_command_feedback hnr.settings matches 0.. run scoreboard players set send_command_feedback hnr.settings 0

@@ -57,7 +57,7 @@ tellraw @s[team=!hunters,gamemode=!spectator] ["",{"text":"You cannot cast a spe
 tellraw @s[team=hunters] ["",{"text":"Something wrong? "},{"text":"[Click here to reset your spell cooldown]","color":"red","clickEvent":{"action":"run_command","value":"/trigger hnr.spellreset"},"hoverEvent":{"action":"show_text","contents":{"text":"If your cooldown is a negative or a very high number or is not counting down, click to reset"}}}]
 
 ##> Retire from game
-tellraw @s ["","(Experimental!) Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.retire"}},"to retire from the game"]
+tellraw @s[gamemode=!spectator] ["","(Experimental!) Gotta go?",{"text":" [Click here] ","color":"yellow","clickEvent":{"action":"run_command","value":"/trigger hnr.retire"}},"to retire from the game"]
 
 ##> Spectators can teleport to other players
 tellraw @s[gamemode=spectator] ["","Bored of your current location? ",{"text":"[Teleport to another player]","color":"green","clickEvent":{"action":"run_command","value":"/trigger hnr.teleport"}}]

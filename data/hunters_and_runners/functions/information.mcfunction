@@ -6,7 +6,7 @@ tellraw @s ["Your role will be automagically revealed when the game starts!"]
 tellraw @s ["Shhh! Make sure to keep it a secret!"]
 tellraw @s ["Please ensure that you are not in spectator mode if you want to play!"]
 tellraw @s [" "]
-tellraw @s [{"text":"[Start]","color":"green", "clickEvent":{"action":"run_command","value":"/function hunters_and_runners:start"},"hoverEvent":{"action":"show_text","value":{"text":"Start Game!","color":"green" }}},{"text":"[Reset]","color":"red", "clickEvent":{"action":"run_command","value":"/function hunters_and_runners:reset/reset"},"hoverEvent":{"action":"show_text","value":{"text":"Reset the game","color":"red" }}}]
+tellraw @s [{"text":"[Start]","color":"green", "clickEvent":{"action":"run_command","value":"/function hunters_and_runners:start"},"hoverEvent":{"action":"show_text","value":{"text":"Start Game!","color":"green" }}},{"text":"[Lobby]","color":"aqua", "clickEvent":{"action":"run_command","value":"/function hunters_and_runners:lobby"},"hoverEvent":{"action":"show_text","value":{"text":"Activate Lobby mode","color":"aqua" }}},{"text":"[Reset]","color":"red", "clickEvent":{"action":"run_command","value":"/function hunters_and_runners:reset/reset"},"hoverEvent":{"action":"show_text","value":{"text":"Reset the game","color":"red" }}}]
 tellraw @s [" "]
 
 #> List our settings

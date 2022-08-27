@@ -16,6 +16,7 @@ scoreboard players set @a hnr.ishealer 0
 scoreboard players reset @a hnr.spell.count
 advancement revoke @a everything
 
+
 #> Heal up all players
 effect give @a minecraft:saturation 3 255 true
 

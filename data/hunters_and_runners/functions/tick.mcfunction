@@ -7,7 +7,7 @@ execute as @a[team=jester,scores={hnr.runners.hp=0}] run function hunters_and_ru
 execute as @a[scores={hnr.stats=1..}] run function hunters_and_runners:stats
 execute as @a[scores={hnr.spellreset=1..}] run function hunters_and_runners:reset/hunter_reset_cooldown
 execute as @a[scores={hnr.retire=1..}] run function hunters_and_runners:reset/player_retire
-execute as @a[scores={hnr.retirecnfm=1..}] run function hunters_and_runners:reset/player_retire_confirm
+execute as @a[scores={hnr.retirecnfm=1..}] run function hunters_and_runners:reset/player_retire_check
 
 #>Enable triggers
 scoreboard players enable @a hnr.information

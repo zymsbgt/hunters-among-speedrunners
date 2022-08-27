@@ -67,5 +67,11 @@ execute as @a[scores={hnr.teleport=1..},team=] run tellraw @s {"text":"Whooosh!"
 execute as @a[scores={hnr.teleport=1..},team=!] run tellraw @s {"text":"Only spectators can teleport to players","color":"red"}
 execute as @a[scores={hnr.teleport=1..}] run scoreboard players set @s hnr.teleport 0
 
+#> If a player has been dead for more than 60s, they are eliminated from the game
+execute as @a[scores={hnr.runners.hp=1..,hnr.deadafk=1..}] run scoreboard players set @s hnr.deadafk 0
+execute as @a[scores={hnr.runners.hp=0}] run scoreboard players add @s hnr.deadafk 1
+execute as @a[scores={hnr.deadafk=45..59}] run tellraw @s ["",{"text":"[","color":"gray"},{"text":"HAS Anti-cheat","color":"red"},{"text":"] ","color":"gray"},{"text":"Warning: You have been AFK while dead for a while now. If you don't respawn, you may be eliminated from the game.","color":"yellow"}]
+execute as @a[scores={hnr.deadafk=60..}] run function hunters_and_runners:anticheat/afk_while_dead
+
 #> Run this function again after 1s
 schedule function hunters_and_runners:long_tick 1s

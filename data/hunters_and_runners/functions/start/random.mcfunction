@@ -30,8 +30,8 @@ execute if score enable_team_colors hnr.settings matches 1 run team modify runne
 execute if score enable_team_colors hnr.settings matches 1 run team modify jester color light_purple
 execute if score send_command_feedback hnr.settings matches 1 run gamerule sendCommandFeedback true
 execute if score send_command_feedback hnr.settings matches 0 run gamerule sendCommandFeedback false
-execute if score send_command_feedback hnr.settings matches 1 run gamerule playersSleepingPercentage 100
-execute if score send_command_feedback hnr.settings matches 0 run gamerule playersSleepingPercentage 0
+execute if score players_sleeping_percentage hnr.settings matches 1 run gamerule playersSleepingPercentage 100
+execute if score players_sleeping_percentage hnr.settings matches 0 run gamerule playersSleepingPercentage 0
 scoreboard players set nether_loaded hnr.settings 0
 scoreboard players set end_loaded hnr.settings 0
 

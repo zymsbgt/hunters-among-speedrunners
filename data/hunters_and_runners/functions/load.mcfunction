@@ -16,6 +16,7 @@ scoreboard objectives add hnr.hunters.hp health
 scoreboard objectives add hnr.runners.hp health
 scoreboard objectives add hnr.killed playerKillCount
 scoreboard objectives add hnr.killed_by minecraft.killed_by:minecraft.player
+scoreboard objectives add hnr.deadafk dummy
 ##> Total players in each team
 scoreboard objectives add hnr.teams.amount dummy
 scoreboard objectives modify hnr.teams.amount displayname {"text":"Players","color":"gold"}

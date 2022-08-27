@@ -10,8 +10,8 @@ execute as @a[scores={hnr.retire=1..}] run function hunters_and_runners:reset/pl
 execute as @a[scores={hnr.retirecnfm=1..}] run function hunters_and_runners:reset/player_retire_check
 
 #>Enable triggers
+scoreboard players enable @a[team=hunters] hnr.tracking_id
 scoreboard players enable @a hnr.information
-scoreboard players enable @a hnr.tracking_id
 scoreboard players enable @a hnr.spell.list
 scoreboard players enable @a hnr.stats
 scoreboard players enable @a hnr.spellreset

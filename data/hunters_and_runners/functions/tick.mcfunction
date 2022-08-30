@@ -3,7 +3,6 @@ execute as @a[scores={hnr.information=1..}] run function hunters_and_runners:inf
 execute as @a[scores={hnr.spell.list=1..}] run function hunters_and_runners:hunters/spell
 execute as @a[team=runners,scores={hnr.runners.hp=0}] run function hunters_and_runners:runners/death
 execute as @a[team=hunters,scores={hnr.hunters.hp=0}] run function hunters_and_runners:hunters/death
-execute as @a[team=jester,scores={hnr.runners.hp=0}] run function hunters_and_runners:jester/death
 execute as @a[scores={hnr.stats=1..}] run function hunters_and_runners:stats
 execute as @a[scores={hnr.spellreset=1..}] run function hunters_and_runners:reset/hunter_reset_cooldown
 execute as @a[scores={hnr.retire=1..}] run function hunters_and_runners:reset/player_retire

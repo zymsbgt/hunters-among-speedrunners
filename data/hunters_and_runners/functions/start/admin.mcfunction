@@ -3,7 +3,6 @@
 #> Clear all teams and set everyone's gamemode to survival
 team empty runners
 team empty hunters
-team empty jester
 gamemode survival @a[gamemode=!spectator]
 title @a[gamemode=spectator] title {"text":"Spectator"}
 title @a[gamemode=spectator] subtitle {"text":"You have chosen to spectate the match"}

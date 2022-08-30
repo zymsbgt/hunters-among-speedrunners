@@ -5,7 +5,6 @@ scoreboard players set @s hnr.retirecnfm 0
 scoreboard players set @s hnr.ishealer 0
 scoreboard players set @s hnr.tracking_id 0
 execute if entity @a[team=runners] run function hunters_and_runners:runners/id/apply
-execute if entity @a[team=jester] run function hunters_and_runners:runners/id/apply
 
 #> Clear teams
 # If player is hunter, reduce hunter count by 1

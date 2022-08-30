@@ -11,12 +11,6 @@ execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed_by=1..}] 
 execute if entity @a[scores={hnr.killed=1..},team=runners] as @a[scores={hnr.killed=1..}] run tellraw @a[scores={hnr.killed_by=1..}] ["",{"text":"You were killed by runner ","color":"red"},{"selector":"@a[scores={hnr.killed=1..}]","color":"red"}]
 ##> If the killer is a hunter, as the killer tell the killed who they were killed by
 execute if entity @a[scores={hnr.killed=1..},team=hunters] as @a[scores={hnr.killed=1..}] run tellraw @a[scores={hnr.killed_by=1..}] ["",{"text":"You were killed by hunter ","color":"aqua"},{"selector":"@a[scores={hnr.killed=1..}]","color":"aqua"}]
-##> If the killer is a jester, as the killer tell the killed who they were killed by, then make Jester take the hunters role
-execute if entity @a[scores={hnr.killed=1..},team=jester] as @a[scores={hnr.killed=1..}] run tellraw @a[scores={hnr.killed_by=1..}] ["",{"text":"You were killed by The Jester ","color":"light_purple"},{"selector":"@a[scores={hnr.killed=1..}]","color":"light_purple"}]
-execute if entity @a[scores={hnr.killed=1..},team=jester] as @a[scores={hnr.killed_by=1..}] run team leave @s
-execute if entity @a[scores={hnr.killed=1..},team=jester] as @a[scores={hnr.killed_by=1..}] run function hunters_and_runners:hunters/join_team
-execute if entity @a[scores={hnr.killed=1..},team=jester] as @a[scores={hnr.killed_by=1..}] run title @s subtitle {"text":"You are now a hunter","color":"aqua"}
-execute if entity @a[scores={hnr.killed=1..},team=jester] as @a[scores={hnr.killed_by=1..}] run title @s title {"text":"You have killed a player!","color":"green"}
 ##> Regardless of killer's role, as the killer playsound to killed wither death sound effect
 execute if entity @a[scores={hnr.killed=1..}] as @a[scores={hnr.killed=1..}] run playsound minecraft:entity.wither.death master @a[team=hunter] ~ ~ ~ 50 1
 

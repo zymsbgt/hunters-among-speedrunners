@@ -67,7 +67,6 @@ scoreboard objectives add hnr.teleport trigger
 #> Add teams
 team add hunters
 team add runners
-team add jester
 
 #> Load default settings
 function hunters_and_runners:settings/load

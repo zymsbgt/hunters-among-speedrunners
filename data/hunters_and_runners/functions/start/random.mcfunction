@@ -1,7 +1,6 @@
 #> Clear all teams and set everyone's gamemode to survival
 team empty runners
 team empty hunters
-team empty jester
 gamemode survival @a[gamemode=!spectator]
 title @a[gamemode=spectator] title {"text":"Spectator"}
 title @a[gamemode=spectator] subtitle {"text":"You have chosen to spectate the match"}
@@ -27,7 +26,6 @@ execute if score show_death_messages hnr.settings matches 0 run gamerule showDea
 execute if score spell_cooldown_debug hnr.settings matches 1 run scoreboard objectives setdisplay sidebar hnr.spell.cool
 execute if score enable_team_colors hnr.settings matches 1 run team modify hunters color aqua
 execute if score enable_team_colors hnr.settings matches 1 run team modify runners color red
-execute if score enable_team_colors hnr.settings matches 1 run team modify jester color light_purple
 execute if score send_command_feedback hnr.settings matches 1 run gamerule sendCommandFeedback true
 execute if score send_command_feedback hnr.settings matches 0 run gamerule sendCommandFeedback false
 execute if score players_sleeping_percentage hnr.settings matches 1 run gamerule playersSleepingPercentage 100
@@ -38,9 +36,6 @@ scoreboard players set end_loaded hnr.settings 0
 #>Starting locations for players
 tp @a @s
 spreadplayers ~ ~ 0 10 false @a
-
-#> Assign Jester, if enabled
-execute if score enable_jester hnr.settings matches 1 run team join jester @r[team=,gamemode=survival]
 
 #> Assign hunters
 execute if score number_of_hunters hnr.settings matches 1 run team join hunters @r[team=,gamemode=survival]
@@ -75,12 +70,10 @@ effect give @a minecraft:saturation 3 255 true
 #> Setting team variables
 team modify runners deathMessageVisibility never
 team modify hunters deathMessageVisibility hideForOtherTeams
-team modify jester deathMessageVisibility never
 team modify hunters seeFriendlyInvisibles true
 team modify runners seeFriendlyInvisibles false
 execute if score enable_team_colors hnr.settings matches 1 run team modify hunters nametagVisibility hideForOtherTeams
 execute if score enable_team_colors hnr.settings matches 1 run team modify runners nametagVisibility never
-execute if score enable_team_colors hnr.settings matches 1 run team modify jester nametagVisibility never
 
 execute if score give_players_invisibility hnr.settings matches 1 run effect give @a minecraft:invisibility 10 0 true
 execute if score give_players_invisibility hnr.settings matches 2 run effect give @a minecraft:invisibility 20 0 true
@@ -89,7 +82,6 @@ execute if score give_players_invisibility hnr.settings matches 3 run effect giv
 #> Set gamemode to survival mode
 gamemode survival @a[team=hunters]
 gamemode survival @a[team=runners]
-gamemode survival @a[team=jester]
 execute as @a[gamemode=!spectator] run scoreboard players add hnr.playercount hnr.settings
 
 #> Announce which team they are on
@@ -105,10 +97,6 @@ execute if score set_runners_goal hnr.settings matches 3 run tellraw @a[team=run
 title @a[team=hunters] title {"text":"Hunter","bold":true,"color":"aqua"}
 title @a[team=hunters] subtitle ["",{"selector":"@a[team=hunters]","color":"aqua"},{"text":" are the hunters","color":"dark_aqua"},{"text":" "}]
 tellraw @a[team=hunters] ["",{"text":"You are now a Hunter,","color":"aqua"},{"text":"\n"},{"text":"Keep the compass in your main/off hand or the last slot on the hotbar for it to update automatically.","color":"aqua"},{"text":"\n"},{"text":"Note: The compass makes a noise that can be heard by others when held in the main/offhand slot.","italic":true,"color":"gray"}]
-title @a[team=jester] title {"text":"Jester","bold":true,"color":"light_purple"}
-title @a[team=jester] subtitle {"text":"Get killed by another player to win!"}
-tellraw @a[team=jester] ["",{"text":"You are "},{"text":"The Jester","color":"dark_purple"},{"text":". Have fun causing chaos! Other players will die when they kill you."}]
-execute if score enable_jester hnr.settings matches 1 run tellraw @a[team=!jester] {"text":"There is a mystery Jester in the game. Don't kill them else you'll be eliminated from the game","color":"dark_purple"}
 tellraw @a[scores={hnr.ishealer=1..}] {"text":"You are a healer, too! You and your friends will regenerate health as long as you stick together!","italic":true}
 
 #> Reset Kill Counters

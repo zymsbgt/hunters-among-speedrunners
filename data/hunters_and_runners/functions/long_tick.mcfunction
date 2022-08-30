@@ -6,7 +6,6 @@ execute as @a run execute store result score @s hnr.zpos run data get entity @s 
 #> Role specific functions
 function hunters_and_runners:runners/tick
 function hunters_and_runners:hunters/tick
-function hunters_and_runners:jester/tick
 
 #> If the first player in a match has reached the nether or end respectively, set gamerules for the dimension (fix for a bug on Bukkit/Spigot servers)
 execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score nether_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_nether"}] run execute if score set_runners_goal hnr.settings matches 0 run gamerule announceAdvancements false
@@ -22,7 +21,6 @@ execute if score set_runners_goal hnr.settings matches 0 run execute if entity @
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1}] run title @a subtitle {"text":" ","color":"red"}
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1},team=runners] run tellraw @a ["",{"selector":"@a[scores={hnr.dragonkilled=1}]","color":"red"},{"text":" has killed the Ender Dragon!","color":"red"}]
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1},team=hunters] run tellraw @a ["",{"selector":"@a[scores={hnr.dragonkilled=1}]","color":"aqua"},{"text":" has killed the Ender Dragon!","color":"red"}]
-execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1},team=jester] run tellraw @a ["",{"selector":"@a[scores={hnr.dragonkilled=1}]","color":"purple"},{"text":" has killed the Ender Dragon!","color":"red"}]
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1}] run tellraw @a {"text":"Runners win!","color":"red"}
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1}] run tellraw @a ["","Admins, ",{"text":"[Click Here] ","color":"aqua","clickEvent":{"action":"run_command","value":"/function hunters_and_runners:reset/resetconfirm"}},"to reset the game!"]
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1}] run scoreboard players set @a hnr.dragonkilled 0
@@ -32,7 +30,6 @@ execute if score set_runners_goal hnr.settings matches 1 run execute if entity @
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1}] run title @a subtitle {"text":" ","color":"red"}
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1},team=runners] run tellraw @a ["",{"selector":"@a[scores={hnr.witherkilled=1}]","color":"red"},{"text":" has killed a Wither!","color":"red"}]
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1},team=hunters] run tellraw @a ["",{"selector":"@a[scores={hnr.witherkilled=1}]","color":"aqua"},{"text":" has killed a Wither!","color":"red"}]
-execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1},team=jester] run tellraw @a ["",{"selector":"@a[scores={hnr.witherkilled=1}]","color":"purple"},{"text":" has killed a Wither!","color":"red"}]
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1}] run tellraw @a {"text":"Runners win!","color":"red"}
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1}] run tellraw @a ["","Admins, ",{"text":"[Click Here] ","color":"aqua","clickEvent":{"action":"run_command","value":"/function hunters_and_runners:reset/resetconfirm"}},"to reset the game!"]
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @a[scores={hnr.witherkilled=1}] run scoreboard players set @a hnr.witherkilled 0

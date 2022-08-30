@@ -29,9 +29,6 @@ execute if score set_runners_goal hnr.settings matches 0 run execute if entity @
 execute if score set_runners_goal hnr.settings matches 1 run execute if entity @s[team=hunters] run tellraw @s {"text":"Kill all runners to win before they spawn and kill a Wither!","color":"aqua"}
 execute if score set_runners_goal hnr.settings matches 2 run execute if entity @s[team=hunters] run tellraw @s {"text":"Villagers and runners are your enemies","color":"aqua"}
 
-execute if entity @s[team=jester] run tellraw @s ["",{"text":"You are "},{"text":"The Jester","color":"light_purple"}]
-execute if entity @s[team=jester] run tellraw @s {"text":"You're a neutral party. Have fun and cause chaos! If you get tired of being Jester, kill or get killed by another player to inherit their role! If another player kills you, they die instantly.","color":"dark_purple"}
-
 ##> if player is the healer
 execute if score @s hnr.ishealer matches 1 run tellraw @s ["","You are ",{"text":"also a healer","color":"green"}]
 execute if score @s hnr.ishealer matches 0 run tellraw @s ["","You are ",{"text":"not a healer","color":"red"}]
@@ -39,7 +36,6 @@ execute if score @s hnr.ishealer matches 0 run tellraw @s ["","You are ",{"text"
 ##> their health
 execute if entity @s[team=hunters] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.hunters.hp"},"color":"aqua"},{"text":" health remaining"}]
 execute if entity @s[team=runners] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"red"},{"text":" health remaining"}]
-execute if entity @s[team=jester] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"light_purple"},{"text":" health remaining"}]
 execute if entity @s[team=] run tellraw @s ["",{"text":"You have "},{"score":{"name":"@s","objective":"hnr.runners.hp"},"color":"gray"},{"text":" health remaining"}]
 
 ##> If player is hunter, tell them who the compass is pointing towards

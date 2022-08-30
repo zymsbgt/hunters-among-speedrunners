@@ -16,6 +16,7 @@ execute if entity @a[nbt={Dimension:"minecraft:the_nether"}] run execute if scor
 execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run gamerule sendCommandFeedback false
 execute if entity @a[nbt={Dimension:"minecraft:the_end"}] run execute if score end_loaded hnr.settings matches 0 run execute at @a[nbt={Dimension:"minecraft:the_end"}] run scoreboard players set end_loaded hnr.settings 1
 
+##> The Big W conditions (for runners at least, sorry hunters!)
 #> When a player kills the Ender Dragon (doesn't have to be a runner since it is the hunter's job to defend the ender dragon)
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1}] run title @a title {"text":"Runners Win!","color":"red"}
 execute if score set_runners_goal hnr.settings matches 0 run execute if entity @a[scores={hnr.dragonkilled=1}] run title @a subtitle {"text":" ","color":"red"}
@@ -67,7 +68,7 @@ execute as @a[scores={hnr.teleport=1..},team=] run tellraw @s {"text":"Whooosh!"
 execute as @a[scores={hnr.teleport=1..},team=!] run tellraw @s {"text":"Only spectators can teleport to players","color":"red"}
 execute as @a[scores={hnr.teleport=1..}] run scoreboard players set @s hnr.teleport 0
 
-#> If a player has been dead for more than 60s, they are eliminated from the game
+#> If a player has been dead for more than 60s, they are eliminated from the game (Anti-cheat feature)
 execute as @a[scores={hnr.runners.hp=1..,hnr.deadafk=1..}] run scoreboard players set @s hnr.deadafk 0
 execute as @a[scores={hnr.runners.hp=0}] run scoreboard players add @s hnr.deadafk 1
 execute as @a[scores={hnr.deadafk=45..59}] run tellraw @s ["",{"text":"[","color":"gray"},{"text":"HAS Anti-cheat","color":"red"},{"text":"] ","color":"gray"},{"text":"Warning: You have been AFK while dead for a while now. If you don't respawn, you may be eliminated from the game.","color":"yellow"}]

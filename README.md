@@ -41,9 +41,6 @@ View spell list:
 /trigger hnr.spell.list
 ```
 
-### Jesters (enable by typing `/trigger hnr.information`):
-We're currently reworking on Jesters to hopefully make the game more chaotic and fun!
-
 ## Settings:
 _Can only be changed by ops_
 

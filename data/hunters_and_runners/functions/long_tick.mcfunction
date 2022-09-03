@@ -43,8 +43,8 @@ execute if score set_runners_goal hnr.settings matches 2 run execute if entity @
 execute if score set_runners_goal hnr.settings matches 2 run execute if entity @a[advancements={minecraft:adventure/hero_of_the_village=true}] run advancement revoke @a everything
 
 #> When healer is nearby, regenerate player health
-execute as @a[scores={hnr.ishealer=0}] at @a[scores={hnr.ishealer=0}] run effect give @a[scores={hnr.ishealer=1},distance=0..15] minecraft:regeneration 4 0 true
-execute as @a[scores={hnr.ishealer=1}] at @a[scores={hnr.ishealer=1}] run effect give @a[scores={hnr.ishealer=0},distance=0..15] minecraft:regeneration 4 0 true
+execute as @a[scores={hnr.ishealer=0},gamemode=!spectator] at @a[scores={hnr.ishealer=0},gamemode=!spectator] run effect give @a[scores={hnr.ishealer=1},distance=0..15,gamemode=!spectator] minecraft:regeneration 4 0 true
+execute as @a[scores={hnr.ishealer=1},gamemode=!spectator] at @a[scores={hnr.ishealer=1},gamemode=!spectator] run effect give @a[scores={hnr.ishealer=0},distance=0..15,gamemode=!spectator] minecraft:regeneration 4 0 true
 
 #> When new player is detected, set gamemode to adventure mode (adjust this server side, this doesn't work properly)
 #execute if score is_game_running hnr.settings matches 0 run execute as @a[scores={hnr.showwelcmsg=0}] run gamemode adventure @s

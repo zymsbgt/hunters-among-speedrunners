@@ -124,7 +124,7 @@ execute as @a[gamemode=survival,team=!hunters] run function hunters_and_runners:
 #> Give compasses
 execute as @a[team=hunters] run function hunters_and_runners:hunters/give_compass
 ##> The command below is to prevent hunter triangulation at the start of the game
-execute as @a[team=hunters] run trigger hnr.tracking_id set 1
+execute if score notify_when_tracked hnr.settings matches 1.. run execute as @a[team=hunters] run trigger hnr.tracking_id set 1
 execute if score hunter_sabotage hnr.settings matches 0 run scoreboard players set @a[team=hunters] hnr.spell.cool 300
 execute if score hunter_sabotage hnr.settings matches 1 run scoreboard players set @a[team=hunters] hnr.spell.cool 600
 execute if score hunter_sabotage hnr.settings matches 2 run scoreboard players set @a[team=hunters] hnr.spell.cool 900
